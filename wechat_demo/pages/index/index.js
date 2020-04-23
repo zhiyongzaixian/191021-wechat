@@ -57,6 +57,12 @@ Page({
     console.log('child');
   },
 
+  toLog(){
+    // 跳转至log页面
+    wx.redirectTo({
+      url: '/pages/log/log', // 注意： 路径前边加根路径 /
+    })
+  },
   handleGetUserInfo(res){
     console.log(res);
     // 用户授权了
@@ -86,14 +92,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    console.log('index onHide 页面隐藏');
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log('index onUnload 页面卸载');
   },
 
   /**

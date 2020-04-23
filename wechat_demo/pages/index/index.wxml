@@ -1,3 +1,4 @@
+
 <view class="indexContainer">
   <image wx:if='{{userInfo.avatarUrl}}' class="avatar" src="{{userInfo.avatarUrl}}"></image>
   <!-- 授权的动作值发生一次 -->
@@ -5,7 +6,7 @@
 
   <text class="userName">{{userInfo.nickName}}</text>
 
-  <view class="goStudy" catchtap="handleParent"> 
-    <text catchtap="handleChild">开启小程序之旅</text>
+  <view class="goStudy" catchtap="toLog"> 
+    <text >开启小程序之旅</text>
   </view>
 </view>

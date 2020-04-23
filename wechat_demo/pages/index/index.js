@@ -1,18 +1,35 @@
 // pages/index/index.js
+// 注册页面
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    msg: '页面初始化测试数据'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 修改状态数据
+    // React： 
+      // 修改状态： setState() 1. 自身的钩子函数(componentDidMount)中是异步， 2. 非自身的钩子函数(setTimeout)中是同步
+      // 获取数据： this.state.xxx
+    // Vue: this.xxx = value 同步
+    // 小程序: this.setData() 同步
 
+    // this.setData({
+    //   msg: '修改之后的数据'
+    // })
+    // console.log(this.data.msg)
+    setTimeout(() => {
+      this.setData({
+        msg: '修改之后的数据'
+      })
+      console.log(this.data.msg);
+    }, 2000)
   },
 
   /**

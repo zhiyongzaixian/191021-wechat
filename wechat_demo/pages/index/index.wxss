@@ -1,9 +1,12 @@
 /* pages/index/index.wxss */
 
+
 .indexContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  background: #f0f;
 }
 
 .avatar {

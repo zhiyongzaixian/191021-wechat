@@ -6,13 +6,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    msg: '页面初始化测试数据'
+    msg: '页面初始化测试数据',
+    userInfo: {}, // 用户信息
   },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // console.log(window) undefined
     // 修改状态数据
     // React： 
       // 修改状态： setState() 1. 自身的钩子函数(componentDidMount)中是异步， 2. 非自身的钩子函数(setTimeout)中是同步
@@ -24,12 +27,45 @@ Page({
     //   msg: '修改之后的数据'
     // })
     // console.log(this.data.msg)
-    setTimeout(() => {
+    // setTimeout(() => {
+    //   this.setData({
+    //     msg: '修改之后的数据'
+    //   })
+    //   console.log(this.data.msg);
+    // }, 2000)
+
+
+    // 获取用户的登录信息 需要授权之后使用
+    wx.getUserInfo({
+      success: (res) => {
+        console.log(res.userInfo);
+        // 更新userInfo的状态数据
+        this.setData({
+          userInfo: res.userInfo
+        })
+      },
+      fail: () => {
+        console.log('获取用户信息失败, 没有授权');
+      }
+    })
+
+  },
+  handleParent(){
+    console.log('parent');
+  },
+  handleChild(){
+    console.log('child');
+  },
+
+  handleGetUserInfo(res){
+    console.log(res);
+    // 用户授权了
+    if(res.detail.userInfo){
+      // 更新userInfo的状态数据
       this.setData({
-        msg: '修改之后的数据'
+        userInfo: res.detail.userInfo
       })
-      console.log(this.data.msg);
-    }, 2000)
+    }
   },
 
   /**

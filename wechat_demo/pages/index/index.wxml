@@ -1,8 +1,11 @@
 <view class="indexContainer">
-  <image class="avatar" src="/images/nvsheng.jpg"></image>
-  <text class="userName">{{msg}}</text>
+  <image wx:if='{{userInfo.avatarUrl}}' class="avatar" src="{{userInfo.avatarUrl}}"></image>
+  <!-- 授权的动作值发生一次 -->
+  <button class="btn" wx:else open-type="getUserInfo" bindgetuserinfo='handleGetUserInfo'>获取用户信息</button>
 
-  <view class="goStudy"> 
-    <text>开启小程序之旅</text>
+  <text class="userName">{{userInfo.nickName}}</text>
+
+  <view class="goStudy" catchtap="handleParent"> 
+    <text catchtap="handleChild">开启小程序之旅</text>
   </view>
 </view>

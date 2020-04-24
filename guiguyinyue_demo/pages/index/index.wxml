@@ -1,0 +1,17 @@
+<view class="indexContainer">
+  <!-- 主页轮播图 -->
+  <swiper class="navSwiper" indicator-dots indicator-color='ivory' indicator-active-color='#d43c33' circular>
+    <swiper-item>
+      <image src="/static/images/nvsheng.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/static/images/nvsheng.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/static/images/nvsheng.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/static/images/nvsheng.jpg"></image>
+    </swiper-item>
+  </swiper>
+</view>

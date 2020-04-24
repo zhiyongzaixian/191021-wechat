@@ -5,14 +5,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    bannerList: [], // 轮播图数据
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 发送请求
+    wx.request({
+      url: 'https://zhiyongzaixian123123.utools.club/banner',
+      data: {
+        type: 2
+      },
+      // data: 'type=2&a=123',
+      success: (res) => {
+        console.log(res.data);
+        this.setData({
+          bannerList: res.data.banners
+        })
+      },
+      fail: (error) => {
+        console.log(error);
+      }
+    })
   },
 
   /**

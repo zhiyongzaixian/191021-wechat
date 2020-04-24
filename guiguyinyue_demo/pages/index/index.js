@@ -1,33 +1,17 @@
-// pages/index/index.js
-Page({
+// import引入只能使用相对路径
+import request from '../../utils/request'
 
-  /**
-   * 页面的初始数据
-   */
+
+Page({
   data: {
     bannerList: [], // 轮播图数据
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     // 发送请求
-    wx.request({
-      url: 'https://zhiyongzaixian123123.utools.club/banner',
-      data: {
-        type: 2
-      },
-      // data: 'type=2&a=123',
-      success: (res) => {
-        console.log(res.data);
-        this.setData({
-          bannerList: res.data.banners
-        })
-      },
-      fail: (error) => {
-        console.log(error);
-      }
+    let bannerListData = await request('/banner', {type: 2} );
+    console.log(bannerListData);
+    this.setData({
+      bannerList: bannerListData.banners
     })
   },
 
@@ -35,7 +19,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+  
   },
 
   /**

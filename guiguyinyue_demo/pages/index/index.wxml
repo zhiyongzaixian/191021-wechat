@@ -33,7 +33,7 @@
   <!-- 推荐歌曲 -->
   <view class="recommendContainer">
     <!-- 头部 -->
-    <NavHeader />
+    <NavHeader title="推荐歌曲" nav="为你精心推荐"/>
     <!-- 滑屏 -->
     <scroll-view class="navScroll" enable-flex scroll-x>
       <view class="scrollItem" wx:for="{{recommendList}}" wx:for-item="recommendItem" wx:for-index="idx" wx:key="{{idx}}">
@@ -46,7 +46,7 @@
   <!-- 排行榜 -->
   <view class="topList">
     <!-- 头部 -->
-    <NavHeader />
+    <NavHeader title="排行榜" nav="热歌风向标"/>
 
     <!-- 内容区 -->
     <swiper class="topListSwiper" next-margin="50rpx">

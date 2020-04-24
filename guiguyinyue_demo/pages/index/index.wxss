@@ -42,40 +42,13 @@
   padding: 40rpx 20rpx;
 }
 
-.recommendContainer .header {
-  margin-bottom: 20rpx;
-}
-
-.recommendContainer .header .title {
-  font-size: 26rpx;
-  color: #666;
-
-}
-
-.recommendContainer .header .navContent {
-  height: 50rpx;
-  line-height: 50rpx;
-}
-
-
-.recommendContainer .header .navContent .nav {
-  font-size: 30rpx;
-  color: #000;
-}
-
-.recommendContainer .header .navContent .more {
-  float: right;
-  border: 1rpx solid #333;
-  font-size: 20rpx;
-  border-radius: 20rpx;
-  padding: 0 20rpx;
-}
 
 
 
 /* 滑屏 */
 .navScroll {
   display: flex;
+  height: 300rpx;
 }
 
 .navScroll .scrollItem{
@@ -98,3 +71,48 @@
   -webkit-line-clamp:2;  /*控制行数*/
   -webkit-box-orient: vertical;  /*规定框的子元素应该被水平或垂直排列。*/
 }
+
+
+/* 排行榜 topList */
+.topList {
+  padding: 40rpx 20rpx;
+}
+
+.topListSwiper {
+  height: 460rpx;
+}
+
+.swiperContent {
+  width: 96%;
+  background: #fbfbfb;
+}
+
+.swiperContent .title {
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+
+.musicContent {
+  display: flex; /* 当一个元素使用display：flex以后其下边的子元素会自动变成block */
+  margin-top: 20rpx;
+}
+
+.musicContent .musicImg {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+}
+.musicContent text {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.musicContent .count {
+  width: 100rpx;
+  text-align: center;
+}
+
+/*.musicContent .musicName {*/
+  /*height: 100rpx;*/
+  /*line-height: 100rpx;*/
+/*}*/

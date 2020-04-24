@@ -5,13 +5,19 @@ import request from '../../utils/request'
 Page({
   data: {
     bannerList: [], // 轮播图数据
+    recommendList: [], // 推荐歌曲
   },
   onLoad: async function (options) {
     // 发送请求
     let bannerListData = await request('/banner', {type: 2} );
-    console.log(bannerListData);
     this.setData({
       bannerList: bannerListData.banners
+    })
+    
+    // 获取推荐歌曲数据
+    let recommendListData = await request('/personalized');
+    this.setData({
+      recommendList: recommendListData.result
     })
   },
 

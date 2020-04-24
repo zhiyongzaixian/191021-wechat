@@ -1,4 +1,6 @@
 /* 公共样式 */
+/* 引入样式 */
+@import "/static/iconfont/iconfont.wxss";
 
 page {
   width: 100%;

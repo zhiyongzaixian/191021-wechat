@@ -1,4 +1,5 @@
 // pages/login/login.js
+import request from '../../utils/request'
 Page({
 
   /**
@@ -15,7 +16,58 @@ Page({
   onLoad: function (options) {
 
   },
-  
+  // 登录功能
+  async login(){
+    // 1. 收集表单项数据
+    let {phone, password} = this.data;
+    // 2. 前端验证
+    if(!phone || !password){
+      wx.showToast({
+        title: '手机号/密码不正确',
+        icon: 'none'
+      })
+      return;
+    }else {
+      // 3. 后端验证
+      let result = await request('/login/cellphone', {phone, password});
+      console.log(result);
+      if(result.code === 200){
+        // 登录成功
+        wx.showToast({
+          title: '登录成功'
+        })
+        // 1. 将用户数据存储至本地
+        wx.setStorage({
+          key: 'userInfo',
+          data: JSON.stringify(result.profile)
+        })
+        
+        // 2. 跳转至个人中心页
+        wx.redirectTo({
+          url: '/pages/personal/personal'
+        })
+        
+        
+        
+        
+        
+        
+      }else if(result.code === 400){
+        wx.showToast({
+          title: '手机号不正确',
+          icon: 'none'
+        })
+      }else {
+        wx.showToast({
+          title: '密码错误',
+          icon: 'none'
+        })
+      }
+    }
+    
+    
+  },
+  // 收集表单相的数据
   handleInput(event){
     // 向事件对象传参1： data-key = value
     // let type = event.currentTarget.dataset.type;

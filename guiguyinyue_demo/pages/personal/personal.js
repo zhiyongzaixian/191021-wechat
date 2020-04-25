@@ -7,10 +7,25 @@ Page({
 
   data: {
     coverTransform: 'translateY(0px)',
-    coverTransition: ''
+    coverTransition: '',
+    userInfo: {},
   },
   onLoad: function (options) {
-
+    // 读取本地是否有登录缓存数据
+    let userInfo = wx.getStorageSync('userInfo');
+    console.log('----------------', userInfo);
+    if(userInfo){
+      this.setData({
+        userInfo: JSON.parse(userInfo)
+      })
+    }
+  },
+  
+  // 跳转至登录界面
+  toLogin(){
+    wx.reLaunch({
+      url: '/pages/login/login'
+    })
   },
   
   handleTouchStart(event){

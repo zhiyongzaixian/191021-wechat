@@ -3,6 +3,7 @@ Page({
   data: {
     videoGroupList:[], // 导航列表
     navId: '', // 视频标签id标识
+    videoList: [], // 视频列表数据
   },
 
   /**
@@ -15,7 +16,21 @@ Page({
       videoGroupList: videoGroupListData.data.slice(0, 14),
       navId: videoGroupListData.data[0].id
     })
+    
+    
+    this.getVideoList(this.data.navId);
   },
+  
+  // 获取视频列表数
+  async getVideoList(navId){
+    let videoListData = await request('/video/group', {id: navId})
+    console.log(videoListData);
+    // 更新至data中的videoList
+    this.setData({
+      videoList: videoListData.datas
+    })
+  },
+  
   // 修改导航id值
   changeNavId(event){
     console.log(event);

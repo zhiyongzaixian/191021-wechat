@@ -27,8 +27,21 @@ export default (url, data={}, method='GET',) => {
       url: config.host + url,
       data, // 统一使用对象的形式
       method,
+      header: {
+        // cookie: JSON.parse(wx.getStorageSync('cookies')).toString()
+        cookie: `${JSON.parse(wx.getStorageSync('cookies'))}`
+      },
       success: (res) => {
         // console.log(res.data);
+        console.log('res: ', res);
+        // login请求的时候需要获取用户cookies， 存入至storage
+        if(data.isLogin){ // 登录请求
+          // 获取用户cookies， 存入至storage
+          wx.setStorage({
+            key: 'cookies',
+            data: JSON.stringify(res.cookies)
+          })
+        }
         resolve(res.data); //  修改promise的状态为成功状态
       },
       fail: (error) => {

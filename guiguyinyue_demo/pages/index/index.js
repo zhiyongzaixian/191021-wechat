@@ -6,6 +6,7 @@ Page({
   data: {
     bannerList: [], // 轮播图数据
     recommendList: [], // 推荐歌曲
+    topList: [], // 排行榜数据
   },
   onLoad: async function (options) {
     // 发送请求
@@ -19,6 +20,22 @@ Page({
     this.setData({
       recommendList: recommendListData.result
     })
+    
+    // 获取排行榜数据
+    let initIdxIds = [0, 1, 2, 3, 4];
+    let index = 0; // 指针，用来记录循环的位置
+    let resultArr = [];
+    while(index < initIdxIds.length){
+      let result = await request(`/top/list?idx=${initIdxIds[index++]}`);
+      // index += 1;
+      let obj = {name: result.playlist.name, tracks: result.playlist.tracks.slice(0, 3)};
+      resultArr.push(obj);
+      this.setData({
+        topList: resultArr
+      })
+    }
+    
+    
   },
 
   /**

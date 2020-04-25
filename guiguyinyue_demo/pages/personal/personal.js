@@ -1,3 +1,4 @@
+import request from "../../utils/request";
 
 let startY = 0; // 手指点击瞬间的位置
 let moveY = 0; // 手指移动的实时位置
@@ -9,23 +10,34 @@ Page({
     coverTransform: 'translateY(0px)',
     coverTransition: '',
     userInfo: {},
+    recentPlayList: [], // 最近播放记录
   },
-  onLoad: function (options) {
+  onLoad: async function (options) {
     // 读取本地是否有登录缓存数据
     let userInfo = wx.getStorageSync('userInfo');
-    console.log('----------------', userInfo);
     if(userInfo){
       this.setData({
         userInfo: JSON.parse(userInfo)
       })
+      
+      // 获取当前用户的播放记录
+      let recentPlayListData = await request('/user/record', {uid: JSON.parse(userInfo).userId, type: 0})
+      this.setData({
+        recentPlayList: recentPlayListData.allData
+      })
     }
+    
+    // userInfo && this.setData({userInfo: JSON.parse(userInfo)})
   },
   
   // 跳转至登录界面
   toLogin(){
-    wx.reLaunch({
-      url: '/pages/login/login'
-    })
+    // 判断是否登录
+    if(!this.data.userInfo.nickname){
+      wx.reLaunch({
+        url: '/pages/login/login'
+      })
+    }
   },
   
   handleTouchStart(event){

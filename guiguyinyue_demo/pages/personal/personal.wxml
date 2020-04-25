@@ -60,10 +60,10 @@
     <view class="personalContent">
       <view class="recentPlayContainer">
         <text class="title">最近播放</text>
-        <view wx:if="{{!userInfo.profile}}">暂无</view>
+        <view wx:if="{{!userInfo.nickname || !recentPlayList.length}}">暂无</view>
         <scroll-view wx:else class="scrollView" enable-flex scroll-x="true">
-          <view class="recentPlay">
-            <image src="/static/images/nvsheng.jpg"></image>
+          <view class="recentPlay" wx:for="{{recentPlayList}}" wx:key="song.id">
+            <image src="{{item.song.al.picUrl}}"></image>
           </view>
         </scroll-view>
       </view>

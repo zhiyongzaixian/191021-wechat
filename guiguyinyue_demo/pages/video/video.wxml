@@ -6,4 +6,18 @@
     </view>
     <image src="/static/images/logo.png"></image>
   </view>
+
+  <!-- 导航区域 -->
+  <scroll-view
+      class="videoNav"
+      enable-flex
+      scroll-x
+  >
+    <view class="navItem" wx:for="{{videoGroupList}}" wx:key="id">
+      <view class="navItemContent {{navId === item.id?'active':'xxxx'}}" bindtap="changeNavId" id="{{item.id}}">
+        {{item.name}}
+      </view>
+    </view>
+  </scroll-view>
+
 </view>

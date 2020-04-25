@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1f5a1d3-d100-40e2-86e6-fa058e6eff0d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pages/personal/personal.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/personal/personal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/personal/personal.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/personal/personal.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/login.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,37 +28,38 @@
         <counts>
           <entry key="css" value="1" />
           <entry key="html" value="1" />
-          <entry key="js" value="12" />
-          <entry key="json" value="10" />
-          <entry key="png" value="1" />
-          <entry key="wxml" value="12" />
-          <entry key="wxss" value="11" />
+          <entry key="jpg" value="1" />
+          <entry key="js" value="15" />
+          <entry key="json" value="11" />
+          <entry key="png" value="7" />
+          <entry key="wxml" value="13" />
+          <entry key="wxss" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="12" />
-          <entry key="HTML" value="13" />
-          <entry key="Image" value="1" />
-          <entry key="JSON" value="10" />
-          <entry key="JavaScript" value="12" />
+          <entry key="CSS" value="13" />
+          <entry key="HTML" value="14" />
+          <entry key="Image" value="8" />
+          <entry key="JSON" value="11" />
+          <entry key="JavaScript" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="96" />
-          <entry key="js" value="3696" />
-          <entry key="json" value="56" />
-          <entry key="wxml" value="1503" />
-          <entry key="wxss" value="1259" />
+          <entry key="js" value="3724" />
+          <entry key="json" value="166" />
+          <entry key="wxml" value="1637" />
+          <entry key="wxss" value="1516" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1259" />
-          <entry key="HTML" value="1599" />
-          <entry key="JSON" value="56" />
-          <entry key="JavaScript" value="3696" />
+          <entry key="CSS" value="1516" />
+          <entry key="HTML" value="1733" />
+          <entry key="JSON" value="166" />
+          <entry key="JavaScript" value="3724" />
         </counts>
       </usages-collector>
     </session>
@@ -66,49 +67,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/login/login.wxml">
+        <entry file="file://$PROJECT_DIR$/pages/video/video.wxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="88">
+              <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/personal/personal.wxml">
+        <entry file="file://$PROJECT_DIR$/pages/video/video.wxss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="63" column="43" lean-forward="true" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
-              <folding>
-                <element signature="n#style#0;n#view#1;n#view#0;n#!!top" expanded="true" />
-                <element signature="n#view#0;n#view#1;n#view#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/login/login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="41" column="45" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="45" />
-              <folding>
-                <element signature="e#210#365#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/personal/personal.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="12" column="18" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="18" />
-              <folding>
-                <element signature="e#243#360#0" />
-                <element signature="e#386#755#0" />
-                <element signature="e#775#968#0" />
-              </folding>
+            <state relative-caret-position="425">
+              <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -146,10 +117,13 @@
         <option value="$PROJECT_DIR$/pages/personal/personal.wxss" />
         <option value="$PROJECT_DIR$/pages/login/login.wxss" />
         <option value="$PROJECT_DIR$/pages/login/login.wxml" />
-        <option value="$PROJECT_DIR$/app.json" />
-        <option value="$PROJECT_DIR$/pages/login/login.js" />
         <option value="$PROJECT_DIR$/pages/personal/personal.js" />
         <option value="$PROJECT_DIR$/pages/personal/personal.wxml" />
+        <option value="$PROJECT_DIR$/app.json" />
+        <option value="$PROJECT_DIR$/pages/login/login.js" />
+        <option value="$PROJECT_DIR$/pages/video/video.js" />
+        <option value="$PROJECT_DIR$/pages/video/video.wxml" />
+        <option value="$PROJECT_DIR$/pages/video/video.wxss" />
       </list>
     </option>
   </component>
@@ -179,6 +153,17 @@
             <path>
               <item name="guiguyinyue_demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="guiguyinyue_demo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="guiguyinyue_demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="guiguyinyue_demo" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="guiguyinyue_demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="guiguyinyue_demo" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="video" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -226,18 +211,18 @@
       <workItem from="1587690733854" duration="456000" />
       <workItem from="1587691206330" duration="16445000" />
       <workItem from="1587773222356" duration="5362000" />
-      <workItem from="1587779642509" duration="10038000" />
+      <workItem from="1587779642509" duration="12810000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32301000" />
+    <option name="totallyTimeSpent" value="35073000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.1845238" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25520834" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -438,10 +423,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
+    <entry file="file://$PROJECT_DIR$/pages/personal/personal.wxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        <state relative-caret-position="220">
+          <caret line="66" column="17" lean-forward="true" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#view#1;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#view#0;n#view#1;n#view#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -452,36 +441,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/tabs/tab-home-current.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/tabs/tab-home.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/tabs/tab-my-current.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/tabs/tab-my.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/tabs/selected.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/tabs/select.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/personal/personal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="e#243#360#0" />
-            <element signature="e#386#755#0" />
-            <element signature="e#775#968#0" />
-          </folding>
+        <state relative-caret-position="110">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/login/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="41" column="45" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="45" />
-          <folding>
-            <element signature="e#210#365#0" />
-          </folding>
+        <state relative-caret-position="356">
+          <caret line="49" column="8" lean-forward="true" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/personal/personal.wxml">
+    <entry file="file://$PROJECT_DIR$/app.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="63" column="43" lean-forward="true" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#view#1;n#view#0;n#!!top" expanded="true" />
-            <element signature="n#view#0;n#view#1;n#view#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="44">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/video/video.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/video/video.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/video/video.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/video/video.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
         </state>
       </provider>
     </entry>

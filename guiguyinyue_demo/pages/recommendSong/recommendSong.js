@@ -1,17 +1,47 @@
-// pages/personal/personal.js
+// pages/recommendSong/recommendSong.js
+import request from "../../utils/request";
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    day: '',
+    month: '',
+    recommendList: [], // 推荐数据列表
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
+    // 判断用户是否登录
+    let userInfo = wx.getStorageSync('cookies');
+    if(!userInfo){
+      // 用户没有登录
+    
+      wx.showLoading({
+        title: '请先登录',
+        success: () => {
+          wx.redirectTo({
+            url: '/pages/login/login'
+          })
+        }
+      })
+    
+    }
   
+    this.setData({
+      day: new Date().getDate(),
+      month: new Date().getMonth() + 1
+    })
+    // 获取recommendList数据
+    let recommendListData = await request('/recommend/songs')
+    
+    this.setData({
+      recommendList: recommendListData.recommend
+    })
   },
 
   /**

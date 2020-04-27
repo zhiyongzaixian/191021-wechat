@@ -4,6 +4,7 @@ Page({
     videoGroupList:[], // 导航列表
     navId: '', // 视频标签id标识
     videoList: [], // 视频列表数据
+    triggered: false, // 标识下拉刷新是否被触发
   },
 
   /**
@@ -45,8 +46,11 @@ Page({
     // console.log(videoListData);
     // 更新至data中的videoList
     this.setData({
-      videoList: videoListData.datas
+      videoList: videoListData.datas,
+      triggered: false,  // 关闭下拉刷新
     })
+    
+    
   },
   
   // 修改导航id值
@@ -62,6 +66,12 @@ Page({
     })
     
     this.getVideoList(this.data.navId)
+  },
+  // 下拉刷新的回调
+  handleRefresher(){
+    console.log('下拉刷新');
+    // 发送请求，更新数据
+    this.getVideoList(this.data.navId);
   },
 
   /**
@@ -110,6 +120,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    console.log('用户转发分享');
+    // 自定义转发内容
+    return {
+      title: '这是我自定义的转发内容',
+      path: '/pages/video/video',
+      imageUrl: '/static/images/nvsheng.jpg'
+    }
   }
 })

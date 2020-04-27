@@ -10,6 +10,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    
+    // 判断用户是否登录
+    let userInfo = wx.getStorageSync('cookies');
+    if(!userInfo){
+      // 用户没有登录
+      
+      wx.showLoading({
+        title: '请先登录',
+        success: () => {
+          wx.redirectTo({
+            url: '/pages/login/login'
+          })
+        }
+      })
+    
+    }
     // 获取导航列表数据
     let videoGroupListData = await request('/video/group/list');
     this.setData({
@@ -24,7 +40,9 @@ Page({
   // 获取视频列表数
   async getVideoList(navId){
     let videoListData = await request('/video/group', {id: navId})
-    console.log(videoListData);
+    // 关闭消息提示
+    wx.hideLoading();
+    // console.log(videoListData);
     // 更新至data中的videoList
     this.setData({
       videoList: videoListData.datas
@@ -33,11 +51,17 @@ Page({
   
   // 修改导航id值
   changeNavId(event){
-    console.log(event);
-    console.log(typeof event.currentTarget.id);
     this.setData({
-      navId: event.currentTarget.id>>>0
+      navId: event.currentTarget.id>>>0,
+      videoList: [], // 清空原有数据
     })
+    
+    wx.showLoading({
+      title: '正在加载',
+      mask: true
+    })
+    
+    this.getVideoList(this.data.navId)
   },
 
   /**

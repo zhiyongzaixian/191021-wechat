@@ -14,7 +14,7 @@
       scroll-x
   >
     <view class="navItem" wx:for="{{videoGroupList}}" wx:key="id">
-      <view class="navItemContent {{navId === item.id?'active':'xxxx'}}" bindtap="changeNavId" id="{{item.id}}">
+      <view class="navItemContent {{navId === item.id?'active':''}}" bindtap="changeNavId" id="{{item.id}}">
         {{item.name}}
       </view>
     </view>
@@ -22,7 +22,7 @@
 
 
   <!-- 视频列表 -->
-  <scroll-view>
+  <scroll-view class="videoList">
     <view class="videoItem" wx:for="{{videoList}}" wx:key="data.vid">
       <video src="{{item.data.urlInfo.url}}"></video>
     </view>

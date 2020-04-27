@@ -28,8 +28,9 @@ export default (url, data={}, method='GET',) => {
       data, // 统一使用对象的形式
       method,
       header: {
-        // cookie: JSON.parse(wx.getStorageSync('cookies')).toString()
-        cookie: `${JSON.parse(wx.getStorageSync('cookies'))}`
+        // cookie: wx.getStorageSync('cookies') && JSON.parse(wx.getStorageSync('cookies')).toString()
+        cookie: JSON.parse(wx.getStorageSync('cookies') || "[]").toString()
+        // cookie: `${JSON.parse(wx.getStorageSync('cookies'))}`
       },
       success: (res) => {
         // console.log(res.data);

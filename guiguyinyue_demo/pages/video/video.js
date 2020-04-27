@@ -1548,6 +1548,27 @@ Page({
       })
     }, 2000)
   },
+  
+  handlePlay(event){
+    console.log(event);
+    console.log('play播放');
+    // 找到上一个播放video的上下文对象videoContext
+    // stop()
+    // 上一个video的上下文对象
+    // 当本地的视频id和上一下的视频id不是同一个id的时候
+    this.vid !== event.currentTarget.id && this.videoContext && this.videoContext.stop();
+    
+    // 判断当前视频是否和上一个视频不是同一个视频，通过vid
+    // if(event.currentTarget.id !== this.vid ){
+    //   if(this.videoContext){ // 判断是否有上下文对象，证明之前播放过视频
+    //     this.videoContext.stop()
+    //   }
+    // }
+    
+    this.vid = event.currentTarget.id;
+    this.videoContext = wx.createVideoContext(this.vid);
+    // this.videoContext.stop();
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

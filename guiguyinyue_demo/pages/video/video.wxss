@@ -58,7 +58,7 @@
 /* videoList视频列表*/
 .videoList {
   /* vh, vw 视口单位   1vh=1/100视口高度   1vw = 1/100视口宽度*/
-  height: calc(100vh - 182rpx);
+  height: calc(100vh - 160rpx);
 }
 .videoItem {
   padding: 0 3%;

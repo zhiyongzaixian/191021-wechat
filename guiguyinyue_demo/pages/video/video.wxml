@@ -29,6 +29,7 @@
       refresher-enabled
       bindrefresherrefresh="handleRefresher"
       refresher-triggered="{{triggered}}"
+      bindscrolltolower="handleScrollLower"
       scroll-y
   >
 
@@ -57,4 +58,5 @@
       </view>
     </view>
   </scroll-view>
+  <!--<view>测试。。。</view>-->
 </view>

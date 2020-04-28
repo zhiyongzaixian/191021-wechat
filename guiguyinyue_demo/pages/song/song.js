@@ -14,6 +14,7 @@ Page({
     song: {}, // 音乐数据
     musicId: '', // 音乐的id
     musicLink: '',// 音乐播放链接
+    isMusicSwitch: false, // 标识音乐是否在切换, 默认是未切换状态
   },
 
   /**
@@ -95,6 +96,10 @@ Page({
         song: songData.songs[0],
         musicId
       })
+      // 动态修改窗口标题
+      wx.setNavigationBarTitle({
+        title: this.data.song.name
+      })
       
       // 自动播放当前音乐, 注意点： 此处不应该传musicLink，否则播放的是上一首音乐
       let musicLink = this.data.musicLink; // 当前的歌曲
@@ -136,7 +141,10 @@ Page({
       this.backgroundAudioManager.src = musicLink;
       this.backgroundAudioManager.title = this.data.song.name;
       
-      
+      // 修改是否在切换的状态
+      this.setData({
+        isMusicSwitch: false
+      })
       // 修改全局播放的状态，声明当前页面音乐在播放
       // appInstance.globalData.isMusicPlay = true;
       // 全局声明播放音乐的musicId
@@ -150,6 +158,15 @@ Page({
   },
   // 切换歌曲的回调
   switchMusic(event){
+    // 判断音乐是否在切换
+    if(this.data.isMusicSwitch){
+      return;
+    }
+    
+    this.setData({
+      isMusicSwitch: true
+    })
+    
     let type = event.currentTarget.id;
     // 停掉当前正在播放的音乐，然后切换下一首
     this.backgroundAudioManager.stop();

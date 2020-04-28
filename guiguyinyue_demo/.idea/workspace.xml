@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1f5a1d3-d100-40e2-86e6-fa058e6eff0d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/recommendSong/recommendSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/recommendSong/recommendSong.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/recommendSong/recommendSong.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/recommendSong/recommendSong.wxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/song/song.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/song/song.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -52,7 +50,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="96" />
-          <entry key="js" value="8879" />
+          <entry key="js" value="9189" />
           <entry key="json" value="183" />
           <entry key="wxml" value="3190" />
           <entry key="wxss" value="3663" />
@@ -63,7 +61,7 @@
           <entry key="CSS" value="3663" />
           <entry key="HTML" value="3286" />
           <entry key="JSON" value="183" />
-          <entry key="JavaScript" value="8879" />
+          <entry key="JavaScript" value="9189" />
         </counts>
       </usages-collector>
     </session>
@@ -79,14 +77,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/song/song.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="155" column="28" lean-forward="true" selection-start-line="155" selection-start-column="3" selection-end-line="155" selection-end-column="28" />
+            <state relative-caret-position="375">
+              <caret line="101" column="8" lean-forward="true" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="8" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
-                <element signature="e#675#715#0" />
                 <element signature="e#1296#1399#0" />
                 <element signature="e#1372#1532#0" />
                 <element signature="e#1452#1554#0" />
@@ -96,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/recommendSong/recommendSong.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="54" column="19" lean-forward="true" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+            <state relative-caret-position="303">
+              <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
               <folding>
                 <element signature="e#40#70#0" expanded="true" />
                 <element signature="e#376#576#0" />
@@ -198,8 +195,8 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/pages/song/song.wxml" />
         <option value="$PROJECT_DIR$/pages/recommendSong/recommendSong.wxml" />
-        <option value="$PROJECT_DIR$/pages/recommendSong/recommendSong.js" />
         <option value="$PROJECT_DIR$/pages/song/song.js" />
+        <option value="$PROJECT_DIR$/pages/recommendSong/recommendSong.js" />
       </list>
     </option>
   </component>
@@ -217,7 +214,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -296,12 +293,12 @@
       <workItem from="1587944931351" duration="10856000" />
       <workItem from="1587962198852" duration="10509000" />
       <workItem from="1588030803310" duration="1229000" />
-      <workItem from="1588033983263" duration="18091000" />
+      <workItem from="1588033983263" duration="20309000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81806000" />
+    <option name="totallyTimeSpent" value="84024000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -620,30 +617,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/song/song.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="101" column="8" lean-forward="true" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#1296#1399#0" />
+            <element signature="e#1372#1532#0" />
+            <element signature="e#1452#1554#0" />
+            <element signature="e#198#213#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/recommendSong/recommendSong.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="54" column="19" lean-forward="true" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+        <state relative-caret-position="303">
+          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
           <folding>
             <element signature="e#40#70#0" expanded="true" />
             <element signature="e#376#576#0" />
             <element signature="e#597#676#0" />
             <element signature="e#787#843#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/song/song.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="155" column="28" lean-forward="true" selection-start-line="155" selection-start-column="3" selection-end-line="155" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <element signature="e#675#715#0" />
-            <element signature="e#1296#1399#0" />
-            <element signature="e#1372#1532#0" />
-            <element signature="e#1452#1554#0" />
-            <element signature="e#198#213#0" />
           </folding>
         </state>
       </provider>

@@ -52,9 +52,18 @@ Page({
       let {recommendList, index} = this.data;
       let musicId; // 即将要播放的音乐Id
       if(type === 'pre'){ // 上一首
+        // if(index === 0){
+        //   index = recommendList.length;
+        // }
+  
+        (index === 0) && (index = recommendList.length);
         index -= 1;
         musicId = recommendList[index].id;
       }else { // 下一首
+        // if(index === recommendList.length -1){
+        //   index = -1;
+        // }
+        (index === recommendList.length -1) && (index = -1);
         index += 1;
         musicId = recommendList[index].id;
       }

@@ -1,5 +1,5 @@
 import request from '../../utils/request'
-
+// 获取页面的实例
 let appInstance = getApp();
 console.log(appInstance);
 Page({
@@ -50,19 +50,26 @@ Page({
     // 生成音乐播放的实例
     this.backgroundAudioManager = wx.getBackgroundAudioManager();
     // 监听音乐播放/暂停/停止
-    this.backgroundAudioManager.onPause(() => {
-      console.log('音乐暂停');
-      // 修改播放的状态
-      this.setData({
-        isPlay: false
-      })
-    })
+   
     this.backgroundAudioManager.onPlay(() => {
       console.log('音乐播放');
       // 修改播放的状态
       this.setData({
         isPlay: true
       })
+  
+      appInstance.globalData.isMusicPlay = true;
+  
+    })
+  
+    this.backgroundAudioManager.onPause(() => {
+      console.log('音乐暂停');
+      // 修改播放的状态
+      this.setData({
+        isPlay: false
+      })
+    
+      appInstance.globalData.isMusicPlay = false;
     })
   
     this.backgroundAudioManager.onStop(() => {
@@ -71,6 +78,10 @@ Page({
       this.setData({
         isPlay: false
       })
+      // 真正意义上停止音乐
+      this.backgroundAudioManager.stop();
+      appInstance.globalData.isMusicPlay = false;
+  
     })
   },
   // 播放音乐的回调
@@ -104,7 +115,7 @@ Page({
           musicLink
         })
       }
-   
+      
       this.backgroundAudioManager.src = musicLink;
       this.backgroundAudioManager.title = this.data.song.name;
       

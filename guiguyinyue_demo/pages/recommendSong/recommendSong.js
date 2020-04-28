@@ -43,6 +43,14 @@ Page({
       recommendList: recommendListData.recommend
     })
   },
+  
+  toSong(event){
+    let song = event.currentTarget.dataset.song
+    // 路由传参： query的形式 ----> url?a=xxx&b=yyy
+    wx.navigateTo({
+      url: '/pages/song/song?id=' + song.id
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

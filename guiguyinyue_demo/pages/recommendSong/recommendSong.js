@@ -11,6 +11,7 @@ Page({
     day: '',
     month: '',
     recommendList: [], // 推荐数据列表
+    index: 0, // 记录播放歌曲的下标
   },
 
   /**
@@ -48,13 +49,31 @@ Page({
     
     // 订阅song发送的切换歌曲消息
     PubSub.subscribe('switchType', (msg, type) => {
-      console.log(msg, type);
+      let {recommendList, index} = this.data;
+      let musicId; // 即将要播放的音乐Id
+      if(type === 'pre'){ // 上一首
+        index -= 1;
+        musicId = recommendList[index].id;
+      }else { // 下一首
+        index += 1;
+        musicId = recommendList[index].id;
+      }
+      // 实时更新当前播放音乐的下标记录
+      this.setData({
+        index
+      })
+      
+      // 发布消息： 将musicId发送给song页面
+      PubSub.publish('musicId', musicId)
     })
   },
-  
+  // toSong的事件回调
   toSong(event){
-    let song = event.currentTarget.dataset.song
+    let {song, index} = event.currentTarget.dataset;
     // 路由传参： query的形式 ----> url?a=xxx&b=yyy
+    this.setData({
+      index
+    })
     wx.navigateTo({
       url: '/pages/song/song?id=' + song.id
     })

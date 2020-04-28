@@ -25,8 +25,6 @@ Page({
     // console.log(options.song);
     // 路由跳转参数不能传入数量大的参数，因为大小限制的问题导致不能获取全部的参数内容
     // let song = JSON.parse(options.song);
-    
-    
     let musicId = options.id;
     // 通过音乐id获取音乐的数据
     let songData = await request(`/song/detail?ids=${musicId}`)
@@ -85,6 +83,23 @@ Page({
       appInstance.globalData.isMusicPlay = false;
   
     })
+    
+    
+    
+    // 订阅消息： recommendList页面发送的musicId数据
+    PubSub.subscribe('musicId', async (msg, musicId) => {
+      console.log('recommendList发送的musicId: ', musicId);
+      // 通过音乐id获取音乐的数据
+      let songData = await request(`/song/detail?ids=${musicId}`)
+      this.setData({
+        song: songData.songs[0],
+        musicId
+      })
+      
+      // 自动播放当前音乐, 注意点： 此处不应该传musicLink，否则播放的是上一首音乐
+      let musicLink = this.data.musicLink; // 当前的歌曲
+      this.musicControl(true, musicId);
+    })
   },
   // 播放音乐的回调
   musicPlay(){
@@ -133,15 +148,14 @@ Page({
       // appInstance.globalData.isMusicPlay = false;
     }
   },
-
-  
   // 切换歌曲的回调
   switchMusic(event){
     let type = event.currentTarget.id;
+    // 停掉当前正在播放的音乐，然后切换下一首
+    this.backgroundAudioManager.stop();
     this.handleSwitch(type);
   },
-  
-  // 切换歌曲的功能回调
+  // 切换歌曲的功能函数
   handleSwitch(type){
     PubSub.publish('switchType', type)
   },

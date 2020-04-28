@@ -1,4 +1,5 @@
 // pages/recommendSong/recommendSong.js
+import PubSub from 'pubsub-js'
 import request from "../../utils/request";
 
 Page({
@@ -41,6 +42,13 @@ Page({
     
     this.setData({
       recommendList: recommendListData.recommend
+    })
+    
+    
+    
+    // 订阅song发送的切换歌曲消息
+    PubSub.subscribe('switchType', (msg, type) => {
+      console.log(msg, type);
     })
   },
   

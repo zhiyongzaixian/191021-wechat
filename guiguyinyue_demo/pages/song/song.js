@@ -1,4 +1,7 @@
 import request from '../../utils/request'
+
+let appInstance = getApp();
+console.log(appInstance);
 Page({
 
   /**
@@ -34,6 +37,41 @@ Page({
     wx.setNavigationBarTitle({
       title: this.data.song.name
     })
+    
+    // 判断当前页面的音乐是否在播放
+    if(appInstance.globalData.isMusicPlay && appInstance.globalData.musicId === musicId){
+      // 当前页面音乐在播放
+      this.setData({
+        isPlay: true
+      })
+    }
+  
+  
+    // 生成音乐播放的实例
+    this.backgroundAudioManager = wx.getBackgroundAudioManager();
+    // 监听音乐播放/暂停/停止
+    this.backgroundAudioManager.onPause(() => {
+      console.log('音乐暂停');
+      // 修改播放的状态
+      this.setData({
+        isPlay: false
+      })
+    })
+    this.backgroundAudioManager.onPlay(() => {
+      console.log('音乐播放');
+      // 修改播放的状态
+      this.setData({
+        isPlay: true
+      })
+    })
+  
+    this.backgroundAudioManager.onStop(() => {
+      console.log('音乐停止');
+      // 修改播放的状态
+      this.setData({
+        isPlay: false
+      })
+    })
   },
   // 播放音乐的回调
   musicPlay(){
@@ -45,11 +83,14 @@ Page({
     
     // 播放/暂停音乐
     let {musicId, musicLink} = this.data;
+    
     // musicLink: 空串 || 音乐链接
     this.musicControl(isPlay, musicId, musicLink);
   },
   // 封装控制音乐播放的功能函数
   async musicControl(isPlay, musicId, musicLink){
+    // 全局声明音乐在播放
+    appInstance.globalData.isMusicPlay = isPlay;
     // 播放
     if(isPlay){
       // 判断之前是否有音乐链接
@@ -63,13 +104,20 @@ Page({
           musicLink
         })
       }
-      // 生成音乐播放的实例
-      this.backgroundAudioManager = wx.getBackgroundAudioManager();
+   
       this.backgroundAudioManager.src = musicLink;
       this.backgroundAudioManager.title = this.data.song.name;
       
+      
+      // 修改全局播放的状态，声明当前页面音乐在播放
+      // appInstance.globalData.isMusicPlay = true;
+      // 全局声明播放音乐的musicId
+      appInstance.globalData.musicId = musicId;
+      
     }else {// 暂停
       this.backgroundAudioManager.pause();
+      // 修改全局播放的状态，声明当前页面音乐在播放
+      // appInstance.globalData.isMusicPlay = false;
     }
   },
 

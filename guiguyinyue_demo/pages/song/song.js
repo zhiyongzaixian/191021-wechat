@@ -8,6 +8,7 @@ Page({
     isPlay: false, // 标识音乐是否在播放
     song: {}, // 音乐数据
     musicId: '', // 音乐的id
+    musicLink: '',// 音乐播放链接
   },
 
   /**
@@ -28,6 +29,11 @@ Page({
       song: songData.songs[0],
       musicId
     })
+    
+    // 动态修改窗口标题
+    wx.setNavigationBarTitle({
+      title: this.data.song.name
+    })
   },
   // 播放音乐的回调
   musicPlay(){
@@ -38,15 +44,32 @@ Page({
     })
     
     // 播放/暂停音乐
-    this.musicControl(isPlay);
+    let {musicId, musicLink} = this.data;
+    // musicLink: 空串 || 音乐链接
+    this.musicControl(isPlay, musicId, musicLink);
   },
-  
-  musicControl(isPlay){
+  // 封装控制音乐播放的功能函数
+  async musicControl(isPlay, musicId, musicLink){
     // 播放
     if(isPlay){
-    
+      // 判断之前是否有音乐链接
+      if(!musicLink){
+        // 通过音乐musicId获取音乐播放链接
+        let musicLinkData = await request(`/song/url?id=${musicId}`);
+        musicLink = musicLinkData.data[0].url;
+        console.log(musicLinkData);
+        // 更新data中的音乐链接musicLink
+        this.setData({
+          musicLink
+        })
+      }
+      // 生成音乐播放的实例
+      this.backgroundAudioManager = wx.getBackgroundAudioManager();
+      this.backgroundAudioManager.src = musicLink;
+      this.backgroundAudioManager.title = this.data.song.name;
+      
     }else {// 暂停
-    
+      this.backgroundAudioManager.pause();
     }
   },
 

@@ -15,6 +15,7 @@ Page({
     musicId: '', // 音乐的id
     musicLink: '',// 音乐播放链接
     isMusicSwitch: false, // 标识音乐是否在切换, 默认是未切换状态
+    currentWidth: 200, // 实时进度条的宽度
   },
 
   /**

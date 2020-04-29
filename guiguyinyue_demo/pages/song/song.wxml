@@ -9,7 +9,20 @@
 
 
 
+  <!-- 进度条区域 -->
+  <view class="audioControl">
+    <text>00:00</text>
+    <!-- 进度条总长度 -->
+    <view class="barControl">
+      <!-- 实时进度条-->
+      <view class="audio-current-time" style='width: {{currentWidth + "rpx"}};'>
+        <view class="audio-progress">
 
+        </view>
+      </view>
+    </view>
+    <text>00:00</text>
+  </view>
 
 
 

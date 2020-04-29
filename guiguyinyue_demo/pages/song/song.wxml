@@ -11,7 +11,7 @@
 
   <!-- 进度条区域 -->
   <view class="audioControl">
-    <text>00:00</text>
+    <text>{{currentTimeFormat}}</text>
     <!-- 进度条总长度 -->
     <view class="barControl">
       <!-- 实时进度条-->
@@ -21,7 +21,7 @@
         </view>
       </view>
     </view>
-    <text>00:00</text>
+    <text>{{durationTimeFormat}}</text>
   </view>
 
 

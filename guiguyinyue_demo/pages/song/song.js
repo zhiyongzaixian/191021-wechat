@@ -1,5 +1,5 @@
 import PubSub from 'pubsub-js'
-
+import moment from 'moment'
 import request from '../../utils/request'
 // 获取页面的实例
 let appInstance = getApp();
@@ -15,7 +15,10 @@ Page({
     musicId: '', // 音乐的id
     musicLink: '',// 音乐播放链接
     isMusicSwitch: false, // 标识音乐是否在切换, 默认是未切换状态
-    currentWidth: 200, // 实时进度条的宽度
+    currentWidth: 0, // 实时进度条的宽度
+    durationTime: 0, // 音乐总时长
+    durationTimeFormat: "00:00", // 格式化以后的总时长
+    currentTimeFormat: "00:00", // 实时播放时长的格式化数据
   },
 
   /**
@@ -29,10 +32,15 @@ Page({
     // let song = JSON.parse(options.song);
     let musicId = options.id;
     // 通过音乐id获取音乐的数据
-    let songData = await request(`/song/detail?ids=${musicId}`)
+    let songData = await request(`/song/detail?ids=${musicId}`);
+    let durationTime = songData.songs[0].dt;
+    // 对时间进行格式化, moment转换时间格式的时候，要求传入ms时间
+    let durationTimeFormat = moment(durationTime).format('mm:ss');
     this.setData({
       song: songData.songs[0],
-      musicId
+      musicId,
+      durationTime,
+      durationTimeFormat
     })
     
     // 动态修改窗口标题
@@ -85,17 +93,39 @@ Page({
       appInstance.globalData.isMusicPlay = false;
   
     })
+    // 监听音乐自然播放结束
+    this.backgroundAudioManager.onEnded(() => {
+      // 停止当前音乐播放， 自动播放下一首音乐
+      this.backgroundAudioManager.stop();
+      this.handleSwitch('next');
+    })
     
-    
+    // 实时监听音乐播放进度
+    this.backgroundAudioManager.onTimeUpdate(() => {
+      // 获取实时的时间，格式化
+      let currentTimeFormat = moment(this.backgroundAudioManager.currentTime * 1000).format('mm:ss');
+      
+      // 播放进度条长度计算公式： 播放时长 / 总时长 = 进度条的长度(currentWidth) / 进度条的总共长度
+      let currentWidth = this.backgroundAudioManager.currentTime / this.backgroundAudioManager.duration * 450;
+      this.setData({
+        currentTimeFormat,
+        currentWidth
+      })
+    })
     
     // 订阅消息： recommendList页面发送的musicId数据
     PubSub.subscribe('musicId', async (msg, musicId) => {
       console.log('recommendList发送的musicId: ', musicId);
       // 通过音乐id获取音乐的数据
-      let songData = await request(`/song/detail?ids=${musicId}`)
+      let songData = await request(`/song/detail?ids=${musicId}`);
+      let durationTime = songData.songs[0].dt;
+      // 对时间进行格式化, moment转换时间格式的时候，要求传入ms时间
+      let durationTimeFormat = moment(durationTime).format('mm:ss');
       this.setData({
         song: songData.songs[0],
-        musicId
+        musicId,
+        durationTime,
+        durationTimeFormat
       })
       // 动态修改窗口标题
       wx.setNavigationBarTitle({

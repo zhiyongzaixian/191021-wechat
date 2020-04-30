@@ -1,1 +1,1 @@
-<view></view>
+<view id="indexContainer"><view class="header"><image class="logo" src="/static/images/logo.png" mode></image><view class="searchInput"><text class="iconfont icon-sousuo"></text><input type="text" value="" placeholder="搜索商品" placeholder-class="placeholder"/></view><button>登录登录</button></view></view>

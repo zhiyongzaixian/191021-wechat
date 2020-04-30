@@ -6,9 +6,9 @@
         "backgroundColor" : "#F8F8F8"
     },
     "pages" : [
-        {
-            "path" : "pages/index/index",
-            "style" : {}
-        }
+			{
+				"path" : "pages/index/index",
+				"style" : {}
+			}
     ]
 }

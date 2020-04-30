@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1f5a1d3-d100-40e2-86e6-fa058e6eff0d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/recommendSong/recommendSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/song/pages/recommendSong/recommendSong.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/recommendSong/recommendSong.json" beforeDir="false" afterPath="$PROJECT_DIR$/song/pages/recommendSong/recommendSong.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/recommendSong/recommendSong.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/song/pages/recommendSong/recommendSong.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/recommendSong/recommendSong.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/song/pages/recommendSong/recommendSong.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/song/song.js" beforeDir="false" afterPath="$PROJECT_DIR$/song/pages/song/song.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/song/song.json" beforeDir="false" afterPath="$PROJECT_DIR$/song/pages/song/song.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/song/song.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/song/pages/song/song.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/song/song.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/song/pages/song/song.wxss" afterDir="false" />
-    </list>
+    <list default="true" id="d1f5a1d3-d100-40e2-86e6-fa058e6eff0d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -28,7 +15,7 @@
     <session id="1891616336">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
@@ -198,7 +185,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -286,12 +273,12 @@
       <workItem from="1587962198852" duration="10509000" />
       <workItem from="1588030803310" duration="1229000" />
       <workItem from="1588033983263" duration="20641000" />
-      <workItem from="1588135816014" duration="11306000" />
+      <workItem from="1588135816014" duration="11906000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95662000" />
+    <option name="totallyTimeSpent" value="96262000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />

@@ -1,0 +1,25 @@
+.recommendContainer .policyDescList {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+.recommendContainer .policyDescList .policyItem {
+  text-align: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.recommendContainer .policyDescList .policyItem image {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+  margin-right: 6rpx;
+}
+.recommendContainer .policyDescList .policyItem text {
+  font-size: 24rpx;
+  vertical-align: middle;
+}
+

@@ -23,13 +23,22 @@
 				{{navItem.text}}
 			</view>
 		</scroll-view>
+	
+		<!-- 推荐Recommend -->
+		<scroll-view scroll-y="true" v-if="indexData.kingKongModule">
+			<Recommend :indexData='indexData'></Recommend>
+		</scroll-view>
 	</view>
 </template>
 
 <script>
 	import axios from 'axios'
 	import request from '../../utils/request.js'
+	import Recommend from '../../components/Recommend/Recommend.vue'
 	export default {
+		components: {
+			Recommend
+		},
 		data() {
 			return {
 				indexData: {},
@@ -145,6 +154,29 @@
 				
 				
 				
+		.banner
+			width 100%
+			heigt 300upx
+			image
+				width 100%
+				height 100%
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	.testxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 		font-size 0
 </style>

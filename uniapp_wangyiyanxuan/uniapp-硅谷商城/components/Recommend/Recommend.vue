@@ -22,12 +22,27 @@
 				<text>{{item.desc}}</text>
 			</view>
 		</view>
+		
+		<!-- kingkongList 10个图标区域 -->
+		<view class="kingkongList">
+			<view class="kingkongItem" v-for="(item, index) in indexData.kingKongModule.kingKongList" :key='item.L1Id'>
+				<image :src="item.picUrl" mode=""></image>
+				<text>{{item.text}}</text>
+			</view>
+		</view>
+	
+		<!-- cateGorys组件 -->
+		<CateGorys :indexData='indexData'></CateGorys>
 	</view>
 </template>
 
 <script>
+	import CateGorys from '../CateGorys/CateGorys.vue'
 	export default {
-		props: ['indexData']
+		props: ['indexData'],
+		components:{
+			CateGorys
+		}
 	}
 </script>
 
@@ -47,5 +62,20 @@
 				text
 					font-size 24upx
 					vertical-align middle
+		.kingkongList
+			display flex
+			flex-wrap wrap
+			margin 20upx 0
+			.kingkongItem
+				width 20%
+				display flex
+				flex-direction column
+				align-items center
+				image
+					width 110upx
+					height 110upx
+				text
+					font-size 24upx
+					line-height 50upx
 					
 </style>

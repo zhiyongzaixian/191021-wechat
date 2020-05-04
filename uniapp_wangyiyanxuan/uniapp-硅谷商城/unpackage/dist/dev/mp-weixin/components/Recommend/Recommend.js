@@ -105,36 +105,50 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var CateGorys = function CateGorys() {return __webpack_require__.e(/*! import() | components/CateGorys/CateGorys */ "components/CateGorys/CateGorys").then(__webpack_require__.bind(null, /*! ../CateGorys/CateGorys.vue */ 66));};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
-  props: ['indexData'] };exports.default = _default;
+  props: ['indexData'],
+  components: {
+    CateGorys: CateGorys } };exports.default = _default;
 
 /***/ }),
 

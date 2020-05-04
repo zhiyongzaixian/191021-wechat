@@ -48,6 +48,12 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
 	.recommendContainer
+		.banner
+			width 100%
+			heigt 300upx
+			image
+				width 100%
+				height 100%
 		.policyDescList
 			display flex
 			width 100%

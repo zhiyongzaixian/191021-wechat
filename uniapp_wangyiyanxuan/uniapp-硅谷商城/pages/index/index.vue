@@ -25,7 +25,7 @@
 		</scroll-view>
 	
 		<!-- 推荐Recommend -->
-		<scroll-view scroll-y="true" v-if="indexData.kingKongModule">
+		<scroll-view class="indexContent" scroll-y="true" v-if="indexData.kingKongModule">
 			<Recommend :indexData='indexData'></Recommend>
 		</scroll-view>
 	</view>
@@ -154,12 +154,8 @@
 				
 				
 				
-		.banner
-			width 100%
-			heigt 300upx
-			image
-				width 100%
-				height 100%
+		.indexContent
+			height calc(100vh - 160upx)
 	
 	
 	

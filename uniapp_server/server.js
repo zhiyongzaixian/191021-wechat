@@ -28,6 +28,13 @@ router.get('/getIndexData', async (ctx, next) => {
 })
 
 
+// cateGorysList分类数据接口
+let cateGorysList = require('./datas/categoryDatas.json');
+router.get('/getCateGorysListData', async (ctx, next) => {
+	ctx.body = cateGorysList
+})
+
+
 
 // 3. 声明使用中间键
 app

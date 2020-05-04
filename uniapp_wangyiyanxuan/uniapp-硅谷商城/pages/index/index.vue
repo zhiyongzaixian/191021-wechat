@@ -10,53 +10,18 @@
 			<button>登录登录</button>
 		</view>
 		<!-- 导航区域 -->
-		<scroll-view scroll-x="true" class="navContainer" >
-			<view class="navItem active">
+		<scroll-view scroll-x="true" class="navContainer" v-if="indexData.kingKongModule">
+			<view class="navItem " :class="{active: navIndex === 0}" @click="changeNavIndex(0)">
 				推荐
 			</view>
-			<view class="navItem">
-				居家生活
+			<view 
+				class="navItem "
+				:class="{active: navIndex === index + 1}"
+				 @click="changeNavIndex((index + 1))"
+					v-for="(navItem, index) in indexData.kingKongModule.kingKongList" 
+					:key='navItem.L1Id'>
+				{{navItem.text}}
 			</view>
-			<view class="navItem">
-				服饰鞋包
-			</view>
-			<view class="navItem">
-				美食酒水
-			</view>
-			<view class="navItem">
-				个护清洁
-			</view>
-			<view class="navItem">
-				推荐
-			</view>
-			<view class="navItem">
-				居家生活
-			</view>
-			<view class="navItem">
-				服饰鞋包
-			</view>
-			<view class="navItem">
-				美食酒水
-			</view>
-			<view class="navItem">
-				个护清洁
-			</view>
-			<view class="navItem">
-				推荐
-			</view>
-			<view class="navItem">
-				居家生活
-			</view>
-			<view class="navItem">
-				服饰鞋包
-			</view>
-			<view class="navItem">
-				美食酒水
-			</view>
-			<view class="navItem">
-				个护清洁
-			</view>
-			
 		</scroll-view>
 	</view>
 </template>
@@ -67,15 +32,25 @@
 	export default {
 		data() {
 			return {
-				
+				indexData: {},
+				navIndex: 0,
 			};
 		},
 		async mounted() {
 			let indexData = await request('/getIndexData')
-			console.log(indexData)
+			this.indexData = indexData
 			// axios不能再小程序中使用，因为基于浏览器环境的XHR对象封装的
-			// axios.get('http://localhost:4001/getIndexData')
+			// axios.get('/api/getIndexData')
+			// 	.then((res) => {
+			// 		console.log(res.data)
+			// 		this.indexData = res.data
+			// 	})
 				
+		},
+		methods: {
+			changeNavIndex(navIndex){
+				this.navIndex = navIndex
+			}
 		}
 	}
 </script>

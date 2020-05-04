@@ -17,8 +17,14 @@ router.get('/test1', (ctx, next) => {
 });
 
 let indexData = require('./datas/index.json');
-router.get('/getIndexData', (ctx, next) => {
+router.get('/getIndexData', async (ctx, next) => {
+	await new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve()
+		}, 2000)
+	})
 	ctx.body = indexData
+	
 })
 
 

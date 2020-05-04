@@ -47,6 +47,29 @@
      text-overflow: ellipsis;
   padding: 0 5rpx;
 }
+#indexContainer .navContainer {
+  white-space: nowrap;
+  height: 80rpx;
+}
+#indexContainer .navContainer .navItem {
+  position: relative;
+  display: inline-block;
+  width: 140rpx;
+  height: 80rpx;
+  margin: 0 10rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+#indexContainer .navContainer .navItem.active:after {
+  content: '';
+  height: 1rpx;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #bb2c08;
+}
 .testxxxxxxxxxxxxxxxxxxxxxxxxxxxx {
   font-size: 0;
 }

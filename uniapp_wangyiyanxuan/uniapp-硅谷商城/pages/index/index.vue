@@ -1,5 +1,6 @@
 <template>
 	<view id="indexContainer">
+		<!-- 头部 -->
 		<view class="header">
 			<image class="logo" src="/static/images/logo.png" mode=""></image>
 			<view class="searchInput">
@@ -8,15 +9,73 @@
 			</view>
 			<button>登录登录</button>
 		</view>
+		<!-- 导航区域 -->
+		<scroll-view scroll-x="true" class="navContainer" >
+			<view class="navItem active">
+				推荐
+			</view>
+			<view class="navItem">
+				居家生活
+			</view>
+			<view class="navItem">
+				服饰鞋包
+			</view>
+			<view class="navItem">
+				美食酒水
+			</view>
+			<view class="navItem">
+				个护清洁
+			</view>
+			<view class="navItem">
+				推荐
+			</view>
+			<view class="navItem">
+				居家生活
+			</view>
+			<view class="navItem">
+				服饰鞋包
+			</view>
+			<view class="navItem">
+				美食酒水
+			</view>
+			<view class="navItem">
+				个护清洁
+			</view>
+			<view class="navItem">
+				推荐
+			</view>
+			<view class="navItem">
+				居家生活
+			</view>
+			<view class="navItem">
+				服饰鞋包
+			</view>
+			<view class="navItem">
+				美食酒水
+			</view>
+			<view class="navItem">
+				个护清洁
+			</view>
+			
+		</scroll-view>
 	</view>
 </template>
 
 <script>
+	import axios from 'axios'
+	import request from '../../utils/request.js'
 	export default {
 		data() {
 			return {
 				
 			};
+		},
+		async mounted() {
+			let indexData = await request('/getIndexData')
+			console.log(indexData)
+			// axios不能再小程序中使用，因为基于浏览器环境的XHR对象封装的
+			// axios.get('http://localhost:4001/getIndexData')
+				
 		}
 	}
 </script>
@@ -77,6 +136,40 @@
 	
 	
 	
+		.navContainer
+			white-space nowrap
+			height 80upx
+			.navItem
+				position relative
+				display inline-block
+				width 140upx
+				height 80upx
+				margin 0 10upx
+				line-height 80upx
+				text-align center
+				font-size 28upx
+				&.active:after
+					content ''
+					height 1upx
+					width 100%
+					position absolute
+					bottom 0
+					left 0
+					background #BB2C08
+					
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 	.testxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 		font-size 0
 </style>

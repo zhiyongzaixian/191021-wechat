@@ -149,16 +149,36 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
+
 var _request = _interopRequireDefault(__webpack_require__(/*! ../../utils/request.js */ 52));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
 {
   data: function data() {
     return {
       categorysList: [],
-      navIndex: 0 };
+      navId: 0 };
 
   },
   mounted: function () {var _mounted = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                (0, _request.default)('/getCateGorysListData'));case 2:this.categorysList = _context.sent;case 3:case "end":return _context.stop();}}}, _callee, this);}));function mounted() {return _mounted.apply(this, arguments);}return mounted;}() };exports.default = _default;
+                (0, _request.default)('/getCateGorysListData'));case 2:this.categorysList = _context.sent;
+              // 更新左侧导航的id值
+              this.navId = this.categorysList[0].id;case 4:case "end":return _context.stop();}}}, _callee, this);}));function mounted() {return _mounted.apply(this, arguments);}return mounted;}(),
+
+  methods: {
+    changeNav: function changeNav(navId) {
+      this.navId = navId;
+    } },
+
+  computed: {
+    cateObj: function cateObj() {var _this = this;
+      // find: 找到符合条件的元素，返回该元素，并结束遍历
+      // filter: 过滤出符合条件的元素，并返回一个新的数组
+      return this.categorysList.find(function (item) {return item.id === _this.navId;});
+    } } };exports.default = _default;
 
 /***/ }),
 

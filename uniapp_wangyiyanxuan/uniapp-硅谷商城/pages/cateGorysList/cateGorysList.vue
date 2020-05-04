@@ -10,14 +10,20 @@
 		<view class="contentContainer">
 			<view class="leftContainer">
 				<scroll-view scroll-y="true" >
-					<view  class="navItem" :class="{active: navIndex === index}" v-for="(navItem, index) in categorysList" :key='navItem.id'>
+					<view @click="changeNav(navItem.id)"  class="navItem" :class="{active: navId === navItem.id}" v-for="(navItem, index) in categorysList" :key='navItem.id'>
 						{{navItem.name}}
 					</view>
 				</scroll-view>
 			</view>
 			<view class="rightContainer">
-				<scroll-view scroll-y="true" >
-					<view></view>
+				<scroll-view scroll-y="true" class="rightScrollView">
+					<view class="proContainer">
+						<image class="proImg" :src="cateObj.imgUrl" mode=""></image>
+						<view class="proItem" v-for="(item, index) in cateObj.subCateList" :key='item.id'>
+							<image :src="item.wapBannerUrl" mode=""></image>
+							<view>{{item.name}}</view>
+						</view>
+					</view>
 				</scroll-view>
 			</view>
 		</view>
@@ -30,11 +36,25 @@
 		data() {
 			return {
 				categorysList: [],
-				navIndex: 0
+				navId: 0
 			};
 		},
 		async mounted() {
 			this.categorysList = await request('/getCateGorysListData')
+			// 更新左侧导航的id值
+			this.navId = this.categorysList[0].id
+		},
+		methods: {
+			changeNav(navId){
+				this.navId = navId
+			}
+		},
+		computed: {
+			cateObj(){
+				// find: 找到符合条件的元素，返回该元素，并结束遍历
+				// filter: 过滤出符合条件的元素，并返回一个新的数组
+				return this.categorysList.find(item => item.id === this.navId)
+			}
 		}
 	}
 </script>
@@ -68,7 +88,7 @@
 			.leftContainer
 				width 20%
 				height 100%
-				border-right 1upx solid #333
+				border-right 1upx solid #eee
 				box-sizing border-box
 				.navItem
 					position relative
@@ -90,7 +110,25 @@
 			.rightContainer
 				width 80%
 				height 100%
+				.rightScrollView
+					height 100%
+					.proContainer
+						display flex
+						flex-wrap wrap
+						.proImg 
+							width 520upx
+							height 190upx
+							margin 20upx auto
+						.proItem
+							width 33.333%
+							display flex
+							flex-direction column
+							align-items center
+							image
+								width 90%
+								height 144upx
+							view
+								font-size 24upx
+							
 	
-	.testxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-		font-size 0
 </style>

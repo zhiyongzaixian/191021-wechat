@@ -32,16 +32,23 @@
 		</view>
 	
 		<!-- cateGorys组件 -->
-		<CateGorys :indexData='indexData'></CateGorys>
+		<!-- <CateGorys :indexData='indexData'></CateGorys> -->
+		<CateGorys></CateGorys>
 	</view>
 </template>
 
 <script>
+	import {mapState} from 'vuex'
 	import CateGorys from '../CateGorys/CateGorys.vue'
 	export default {
-		props: ['indexData'],
+		// props: ['indexData'],
 		components:{
 			CateGorys
+		},
+		computed:{
+			...mapState({
+				indexData: state => state.index.indexData
+			})
 		}
 	}
 </script>

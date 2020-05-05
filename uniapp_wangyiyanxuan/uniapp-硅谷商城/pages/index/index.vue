@@ -26,13 +26,15 @@
 		<!-- 内容区 -->
 		<scroll-view class="indexContent" scroll-y="true" v-if="indexData.kingKongModule">
 			<!-- 推荐Recommend -->
-			<Recommend v-if='navIndex === 0' :indexData='indexData'></Recommend>
+			<!-- <Recommend v-if='navIndex === 0' :indexData='indexData'></Recommend> -->
+			<Recommend v-if='navIndex === 0' ></Recommend>
 			<CateList v-else :navId='navId'></CateList>
 		</scroll-view>
 	</view>
 </template>
 
 <script>
+	import {mapActions, mapState} from 'vuex'
 	import axios from 'axios'
 	import request from '../../utils/request.js'
 	import Recommend from '../../components/Recommend/Recommend.vue'
@@ -43,27 +45,40 @@
 		},
 		data() {
 			return {
-				indexData: {},
+				// indexData: {},
 				navIndex: 0,
 				navId: 0,
 			};
 		},
 		async mounted() {
-			let indexData = await request('/getIndexData')
-			this.indexData = indexData
+			// let indexData = await request('/getIndexData')
+			// this.indexData = indexData
 			// axios不能再小程序中使用，因为基于浏览器环境的XHR对象封装的
 			// axios.get('/api/getIndexData')
 			// 	.then((res) => {
 			// 		console.log(res.data)
 			// 		this.indexData = res.data
 			// 	})
-				
+			// console.log(this.$store.state.index.initData)
+			// this.$store.dispatch('getIndexData')
+			// console.log(this.$store.state.index.indexData)
+			
+			this.getIndexData()
 		},
 		methods: {
 			changeNavIndex(navIndex, navId){
 				this.navIndex = navIndex
 				this.navId = navId
-			}
+			},
+			
+			...mapActions({
+				getIndexData: 'getIndexData'
+			})
+		},
+		computed:{
+			...mapState({
+				indexData: state => state.index.indexData
+			})
 		}
 	}
 </script>

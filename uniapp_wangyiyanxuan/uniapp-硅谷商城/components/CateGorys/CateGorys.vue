@@ -16,8 +16,14 @@
 </template>
 
 <script>
+	import {mapState} from 'vuex'
 	export default {
-		props: ['indexData']
+		// props: ['indexData']
+		computed:{
+			...mapState({
+				indexData: state => state.index.indexData
+			})
+		}
 	}
 </script>
 

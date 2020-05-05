@@ -122,7 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -220,7 +220,28 @@ var _default =
 
 
 
+  },
+  methods: {
+    toLogin: function toLogin() {
+      // 判断用户是否登录
+      if (this.userInfo.nickName) {
+        return;
+      }
+      // 跳转至登录页
+      wx.redirectTo({
+        url: '/pages/login/login' });
+
+    } },
+
+  mounted: function mounted() {
+    // 判断用户是否登录
+    var userInfo = uni.getStorageSync('userInfo');
+    if (userInfo) {
+      // 更新当前页面userInfo的状态数据
+      this.userInfo = JSON.parse(JSON.parse(userInfo).rawData);
+    }
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

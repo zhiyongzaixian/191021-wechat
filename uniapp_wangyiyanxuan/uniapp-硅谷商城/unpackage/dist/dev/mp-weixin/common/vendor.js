@@ -8400,7 +8400,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": {}, "pages/cateGorysList/cateGorysList": { "navigationBarTitleText": "商品分类" }, "pages/detail/detail": { "navigationBarTitleText": "商品详情" }, "pages/cart/cart": { "navigationBarTitleText": "购物车" }, "pages/personal/personal": { "navigationBarTitleText": "个人中心", "navigationBarBackgroundColor": "#EED7B5" }, "pages/login/login": { "navigationBarBackgroundColor": "#F8F8F8", "navigationBarTitleText": "登录中心" } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarTitleText": "硅谷商城", "navigationBarBackgroundColor": "#BB2C08", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "usingComponents": { "recommend": "/components/Recommend/Recommend", "cate-list": "/components/cateList/cateList" } }, "pages/cateGorysList/cateGorysList": { "navigationBarTitleText": "商品分类", "usingComponents": {} }, "pages/detail/detail": { "navigationBarTitleText": "商品详情", "usingComponents": {} }, "pages/cart/cart": { "navigationBarTitleText": "购物车", "usingComponents": {} }, "pages/personal/personal": { "navigationBarTitleText": "个人中心", "navigationBarBackgroundColor": "#EED7B5", "usingComponents": {} }, "pages/login/login": { "navigationBarBackgroundColor": "#F8F8F8", "navigationBarTitleText": "登录中心", "usingComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarTitleText": "硅谷商城", "navigationBarBackgroundColor": "#BB2C08", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
@@ -9393,26 +9393,26 @@ var index_esm = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 12));var _request = _interopRequireDefault(__webpack_require__(/*! ../../utils/request.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 12));var _request = _interopRequireDefault(__webpack_require__(/*! ../../utils/request.js */ 15));
+var _mutationType = __webpack_require__(/*! ../mutation-type */ 138);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
 
 var state = {
   initData: 'index的初始化测试数据',
   indexData: {} // index主页数据
 };
 
-var mutations = {
-  changeIndexData: function changeIndexData(state, indexData) {
-
-    state.indexData = indexData;
-    console.log(state.indexData, 'xxx');
-  } };
+var mutations = _defineProperty({},
+_mutationType.CHANGEINDEXDATA, function (state, indexData) {
+  state.indexData = indexData;
+});
 
 
 var actions = {
   getIndexData: function () {var _getIndexData = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(_ref) {var commit, indexData;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:commit = _ref.commit;_context.next = 3;return (
 
                 (0, _request.default)('/getIndexData'));case 3:indexData = _context.sent;
-              commit('changeIndexData', indexData);case 5:case "end":return _context.stop();}}}, _callee, this);}));function getIndexData(_x) {return _getIndexData.apply(this, arguments);}return getIndexData;}() };var _default =
+              commit(_mutationType.CHANGEINDEXDATA, indexData);case 5:case "end":return _context.stop();}}}, _callee, this);}));function getIndexData(_x) {return _getIndexData.apply(this, arguments);}return getIndexData;}() };var _default =
 
 
 
@@ -12404,6 +12404,98 @@ module.exports = function spread(callback) {
     return callback.apply(null, arr);
   };
 };
+
+/***/ }),
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */,
+/* 113 */,
+/* 114 */,
+/* 115 */,
+/* 116 */,
+/* 117 */,
+/* 118 */,
+/* 119 */,
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */
+/*!******************************************************************************************************!*\
+  !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/store/mutation-type.js ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.CHANGEINDEXDATA = void 0;var CHANGEINDEXDATA = 'changeIndexData';exports.CHANGEINDEXDATA = CHANGEINDEXDATA;
 
 /***/ })
 ]]);

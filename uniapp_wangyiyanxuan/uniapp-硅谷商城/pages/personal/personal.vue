@@ -3,8 +3,8 @@
 			<div class="header">
 				<image class="userImg" :src="userInfo.avatarUrl?userInfo.avatarUrl:'../../static/images/personal/personal.png'" mode=""></image>
 				<div class='userInfo' @click='toLogin'>
-					<p>未登录</p>
-					<p>点击登录账号</p>
+					<p>{{userInfo.nickName?userInfo.nickName:'未登录'}}</p>
+					<p v-if='!userInfo.nickName'>点击登录账号</p>
 				</div>
 			</div>
 			
@@ -51,8 +51,8 @@
 			return {
 				userInfo: {
 						
-					},
-					personalList: [
+				},
+				personalList: [
 						{
 							name: '我的订单',
 							icon: 'icon-dingdan11'
@@ -96,6 +96,26 @@
 					]
 				
 			};
+		},
+		methods: {
+			toLogin(){
+				// 判断用户是否登录
+				if(this.userInfo.nickName){
+					return
+				}
+				// 跳转至登录页
+				wx.redirectTo({
+					url: '/pages/login/login'
+				})
+			}
+		},
+		mounted() {
+			// 判断用户是否登录
+			let userInfo = uni.getStorageSync('userInfo')
+			if(userInfo){
+				// 更新当前页面userInfo的状态数据
+				this.userInfo = JSON.parse(JSON.parse(userInfo).rawData)
+			}
 		}
 	}
 </script>

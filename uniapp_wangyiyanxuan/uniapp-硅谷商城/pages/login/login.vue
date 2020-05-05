@@ -3,7 +3,7 @@
 		<image class="logo" src="http://yanxuan.nosdn.127.net/39c5e4583753d4c3cb868a64c2c109ea.png" mode=""></image>
 		<p class='text'>网易自营，精品生活家居品牌</p>
 		<div class="loginMethods">
-			<button class="login wechatLogin">
+			<button class="login wechatLogin" open-type="getUserInfo" @getuserinfo='handleGetUserInfo'>
 				微信登录
 			</button>
 			<button class="login emailLogin">
@@ -19,6 +19,24 @@
 			return {
 				
 			};
+		},
+		methods: {
+			handleGetUserInfo(res){
+				console.log(res.detail)
+				let {rawData, signature} = res.detail
+				let obj = {rawData, signature}
+				
+				// 将数据存储值本地
+				uni.setStorage({
+					key: 'userInfo',
+					data: JSON.stringify(obj)
+				})
+				
+				// 跳转至个人中心
+				uni.reLaunch({
+					url: '/pages/personal/personal'
+				})
+			}
 		}
 	}
 </script>

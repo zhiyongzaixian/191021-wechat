@@ -7,25 +7,46 @@
     },
     "pages" : [
 			{
+				"path" : "pages/index/index",
+				"style" : {}
+			},
+			{
 				"path" : "pages/cateGorysList/cateGorysList",
 				"style" : {
 					"navigationBarTitleText" : "商品分类"
 				}
 			},
 			{
-				"path" : "pages/index/index",
-				"style" : {}
+				"path" : "pages/detail/detail",
+				"style" : {
+					"navigationBarTitleText" : "商品详情"
+				}
 			},
-			
 			{
 				"path" : "pages/cart/cart",
-				"style" : {}
+				"style" : {
+					"navigationBarTitleText" : "购物车"
+				}
 			},
 			{
 				"path" : "pages/personal/personal",
-				"style" : {}
+				"style" : {
+					"navigationBarTitleText" : "个人中心",
+					"navigationBarBackgroundColor": "#EED7B5"
+				}
+			},
+			{
+				"path" : "pages/login/login",
+				"style" : {
+					"navigationBarBackgroundColor": "#F8F8F8",
+				"navigationBarTitleText": "登录中心"
+				}
 			}
-		],
+			
+			
+			
+			
+    ],
 		"tabBar": {
 			"color":"#555",
 			"selectedColor":"#D43C33",

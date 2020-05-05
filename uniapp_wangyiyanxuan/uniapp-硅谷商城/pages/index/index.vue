@@ -17,16 +17,17 @@
 			<view 
 				class="navItem "
 				:class="{active: navIndex === index + 1}"
-				 @click="changeNavIndex((index + 1))"
+				 @click="changeNavIndex((index + 1), navItem.L1Id)"
 					v-for="(navItem, index) in indexData.kingKongModule.kingKongList" 
 					:key='navItem.L1Id'>
 				{{navItem.text}}
 			</view>
 		</scroll-view>
-	
-		<!-- 推荐Recommend -->
+		<!-- 内容区 -->
 		<scroll-view class="indexContent" scroll-y="true" v-if="indexData.kingKongModule">
-			<Recommend :indexData='indexData'></Recommend>
+			<!-- 推荐Recommend -->
+			<Recommend v-if='navIndex === 0' :indexData='indexData'></Recommend>
+			<CateList v-else :navId='navId'></CateList>
 		</scroll-view>
 	</view>
 </template>
@@ -35,14 +36,16 @@
 	import axios from 'axios'
 	import request from '../../utils/request.js'
 	import Recommend from '../../components/Recommend/Recommend.vue'
+	import CateList from '../../components/cateList/cateList.vue'
 	export default {
 		components: {
-			Recommend
+			Recommend, CateList
 		},
 		data() {
 			return {
 				indexData: {},
 				navIndex: 0,
+				navId: 0,
 			};
 		},
 		async mounted() {
@@ -57,8 +60,9 @@
 				
 		},
 		methods: {
-			changeNavIndex(navIndex){
+			changeNavIndex(navIndex, navId){
 				this.navIndex = navIndex
+				this.navId = navId
 			}
 		}
 	}
@@ -104,22 +108,7 @@
 				overflow hidden
 				text-overflow ellipsis
 				padding 0 5upx
-				
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 		.navContainer
 			white-space nowrap
 			height 80upx
@@ -140,23 +129,10 @@
 					bottom 0
 					left 0
 					background #BB2C08
-					
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+
 		.indexContent
 			height calc(100vh - 160upx)
-	
+			margin-top 10upx
 	
 	
 	

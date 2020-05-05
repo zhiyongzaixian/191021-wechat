@@ -733,7 +733,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -6978,7 +6978,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -6999,14 +6999,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7082,7 +7082,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8400,7 +8400,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "usingComponents": { "recommend": "/components/Recommend/Recommend" } }, "pages/cateGorysList/cateGorysList": { "navigationBarTitleText": "商品分类", "usingComponents": {} }, "pages/cart/cart": { "usingComponents": {} }, "pages/personal/personal": { "usingComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarTitleText": "硅谷商城", "navigationBarBackgroundColor": "#BB2C08", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/cateGorysList/cateGorysList": { "navigationBarTitleText": "商品分类", "usingComponents": {} }, "pages/detail/detail": { "navigationBarTitleText": "商品详情", "usingComponents": {} }, "pages/cart/cart": { "navigationBarTitleText": "购物车", "usingComponents": {} }, "pages/personal/personal": { "navigationBarTitleText": "个人中心", "navigationBarBackgroundColor": "#EED7B5", "usingComponents": {} }, "pages/login/login": { "navigationBarBackgroundColor": "#F8F8F8", "navigationBarTitleText": "登录中心", "usingComponents": {} }, "pages/index/index": { "usingComponents": { "recommend": "/components/Recommend/Recommend", "cate-list": "/components/cateList/cateList" } } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarTitleText": "硅谷商城", "navigationBarBackgroundColor": "#BB2C08", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
@@ -9321,6 +9321,87 @@ if (hadRuntime) {
 
 /***/ }),
 /* 24 */
+/*!************************************************************************************************!*\
+  !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/utils/request.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _config = _interopRequireDefault(__webpack_require__(/*! ./config.js */ 25));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+
+function _default(url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var method = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'GET';
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: _config.default.host + url,
+      data: data,
+      method: method,
+      success: function success(res) {
+        resolve(res.data);
+      },
+      fail: function fail(error) {
+        reject(error);
+      } });
+
+  });
+};exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 25 */
+/*!***********************************************************************************************!*\
+  !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/utils/config.js ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 配置服务器的信息
+var _default = {
+  host: 'http://localhost:4001' };exports.default = _default;
+
+/***/ }),
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */
 /*!***********************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/index.js ***!
   \***********************************************************************************************************/
@@ -9328,10 +9409,10 @@ if (hadRuntime) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-module.exports = __webpack_require__(/*! ./lib/axios */ 25);
+module.exports = __webpack_require__(/*! ./lib/axios */ 67);
 
 /***/ }),
-/* 25 */
+/* 67 */
 /*!***************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/axios.js ***!
   \***************************************************************************************************************/
@@ -9341,11 +9422,11 @@ module.exports = __webpack_require__(/*! ./lib/axios */ 25);
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./utils */ 26);
-var bind = __webpack_require__(/*! ./helpers/bind */ 27);
-var Axios = __webpack_require__(/*! ./core/Axios */ 28);
-var mergeConfig = __webpack_require__(/*! ./core/mergeConfig */ 48);
-var defaults = __webpack_require__(/*! ./defaults */ 34);
+var utils = __webpack_require__(/*! ./utils */ 68);
+var bind = __webpack_require__(/*! ./helpers/bind */ 69);
+var Axios = __webpack_require__(/*! ./core/Axios */ 70);
+var mergeConfig = __webpack_require__(/*! ./core/mergeConfig */ 90);
+var defaults = __webpack_require__(/*! ./defaults */ 76);
 
 /**
                                        * Create an instance of Axios
@@ -9378,15 +9459,15 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(/*! ./cancel/Cancel */ 49);
-axios.CancelToken = __webpack_require__(/*! ./cancel/CancelToken */ 50);
-axios.isCancel = __webpack_require__(/*! ./cancel/isCancel */ 33);
+axios.Cancel = __webpack_require__(/*! ./cancel/Cancel */ 91);
+axios.CancelToken = __webpack_require__(/*! ./cancel/CancelToken */ 92);
+axios.isCancel = __webpack_require__(/*! ./cancel/isCancel */ 75);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(/*! ./helpers/spread */ 51);
+axios.spread = __webpack_require__(/*! ./helpers/spread */ 93);
 
 module.exports = axios;
 
@@ -9394,7 +9475,7 @@ module.exports = axios;
 module.exports.default = axios;
 
 /***/ }),
-/* 26 */
+/* 68 */
 /*!***************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/utils.js ***!
   \***************************************************************************************************************/
@@ -9404,7 +9485,7 @@ module.exports.default = axios;
 "use strict";
 
 
-var bind = __webpack_require__(/*! ./helpers/bind */ 27);
+var bind = __webpack_require__(/*! ./helpers/bind */ 69);
 
 /*global toString:true*/
 
@@ -9747,7 +9828,7 @@ module.exports = {
   trim: trim };
 
 /***/ }),
-/* 27 */
+/* 69 */
 /*!**********************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/bind.js ***!
   \**********************************************************************************************************************/
@@ -9768,7 +9849,7 @@ module.exports = function bind(fn, thisArg) {
 };
 
 /***/ }),
-/* 28 */
+/* 70 */
 /*!********************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/Axios.js ***!
   \********************************************************************************************************************/
@@ -9778,11 +9859,11 @@ module.exports = function bind(fn, thisArg) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
-var buildURL = __webpack_require__(/*! ../helpers/buildURL */ 29);
-var InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ 30);
-var dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ 31);
-var mergeConfig = __webpack_require__(/*! ./mergeConfig */ 48);
+var utils = __webpack_require__(/*! ./../utils */ 68);
+var buildURL = __webpack_require__(/*! ../helpers/buildURL */ 71);
+var InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ 72);
+var dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ 73);
+var mergeConfig = __webpack_require__(/*! ./mergeConfig */ 90);
 
 /**
                                              * Create a new instance of Axios
@@ -9872,7 +9953,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = Axios;
 
 /***/ }),
-/* 29 */
+/* 71 */
 /*!**************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/buildURL.js ***!
   \**************************************************************************************************************************/
@@ -9882,7 +9963,7 @@ module.exports = Axios;
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
+var utils = __webpack_require__(/*! ./../utils */ 68);
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -9953,7 +10034,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 };
 
 /***/ }),
-/* 30 */
+/* 72 */
 /*!*********************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/InterceptorManager.js ***!
   \*********************************************************************************************************************************/
@@ -9963,7 +10044,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
+var utils = __webpack_require__(/*! ./../utils */ 68);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -10015,7 +10096,7 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 module.exports = InterceptorManager;
 
 /***/ }),
-/* 31 */
+/* 73 */
 /*!******************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/dispatchRequest.js ***!
   \******************************************************************************************************************************/
@@ -10025,10 +10106,10 @@ module.exports = InterceptorManager;
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
-var transformData = __webpack_require__(/*! ./transformData */ 32);
-var isCancel = __webpack_require__(/*! ../cancel/isCancel */ 33);
-var defaults = __webpack_require__(/*! ../defaults */ 34);
+var utils = __webpack_require__(/*! ./../utils */ 68);
+var transformData = __webpack_require__(/*! ./transformData */ 74);
+var isCancel = __webpack_require__(/*! ../cancel/isCancel */ 75);
+var defaults = __webpack_require__(/*! ../defaults */ 76);
 
 /**
                                         * Throws a `Cancel` if cancellation has been requested.
@@ -10104,7 +10185,7 @@ module.exports = function dispatchRequest(config) {
 };
 
 /***/ }),
-/* 32 */
+/* 74 */
 /*!****************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/transformData.js ***!
   \****************************************************************************************************************************/
@@ -10114,7 +10195,7 @@ module.exports = function dispatchRequest(config) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
+var utils = __webpack_require__(/*! ./../utils */ 68);
 
 /**
                                     * Transform the data for a request or a response
@@ -10134,7 +10215,7 @@ module.exports = function transformData(data, headers, fns) {
 };
 
 /***/ }),
-/* 33 */
+/* 75 */
 /*!*************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/cancel/isCancel.js ***!
   \*************************************************************************************************************************/
@@ -10149,7 +10230,7 @@ module.exports = function isCancel(value) {
 };
 
 /***/ }),
-/* 34 */
+/* 76 */
 /*!******************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/defaults.js ***!
   \******************************************************************************************************************/
@@ -10159,8 +10240,8 @@ module.exports = function isCancel(value) {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(/*! ./utils */ 26);
-var normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ 37);
+var utils = __webpack_require__(/*! ./utils */ 68);
+var normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ 79);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded' };
@@ -10176,10 +10257,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(/*! ./adapters/xhr */ 38);
+    adapter = __webpack_require__(/*! ./adapters/xhr */ 80);
   } else if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(/*! ./adapters/http */ 38);
+    adapter = __webpack_require__(/*! ./adapters/http */ 80);
   }
   return adapter;
 }
@@ -10254,10 +10335,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 });
 
 module.exports = defaults;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/node-libs-browser/mock/process.js */ 35)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/node-libs-browser/mock/process.js */ 77)))
 
 /***/ }),
-/* 35 */
+/* 77 */
 /*!********************************************************!*\
   !*** ./node_modules/node-libs-browser/mock/process.js ***!
   \********************************************************/
@@ -10284,7 +10365,7 @@ exports.binding = function (name) {
     var path;
     exports.cwd = function () { return cwd };
     exports.chdir = function (dir) {
-        if (!path) path = __webpack_require__(/*! path */ 36);
+        if (!path) path = __webpack_require__(/*! path */ 78);
         cwd = path.resolve(dir, cwd);
     };
 })();
@@ -10297,7 +10378,7 @@ exports.features = {};
 
 
 /***/ }),
-/* 36 */
+/* 78 */
 /*!***********************************************!*\
   !*** ./node_modules/path-browserify/index.js ***!
   \***********************************************/
@@ -10529,10 +10610,10 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 35)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 77)))
 
 /***/ }),
-/* 37 */
+/* 79 */
 /*!*************************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
   \*************************************************************************************************************************************/
@@ -10542,7 +10623,7 @@ var substr = 'ab'.substr(-1) === 'b'
 "use strict";
 
 
-var utils = __webpack_require__(/*! ../utils */ 26);
+var utils = __webpack_require__(/*! ../utils */ 68);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -10554,7 +10635,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 };
 
 /***/ }),
-/* 38 */
+/* 80 */
 /*!**********************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/adapters/xhr.js ***!
   \**********************************************************************************************************************/
@@ -10564,13 +10645,13 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
-var settle = __webpack_require__(/*! ./../core/settle */ 39);
-var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ 29);
-var buildFullPath = __webpack_require__(/*! ../core/buildFullPath */ 42);
-var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ 45);
-var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ 46);
-var createError = __webpack_require__(/*! ../core/createError */ 40);
+var utils = __webpack_require__(/*! ./../utils */ 68);
+var settle = __webpack_require__(/*! ./../core/settle */ 81);
+var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ 71);
+var buildFullPath = __webpack_require__(/*! ../core/buildFullPath */ 84);
+var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ 87);
+var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ 88);
+var createError = __webpack_require__(/*! ../core/createError */ 82);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -10667,7 +10748,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(/*! ./../helpers/cookies */ 47);
+      var cookies = __webpack_require__(/*! ./../helpers/cookies */ 89);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ?
@@ -10744,7 +10825,7 @@ module.exports = function xhrAdapter(config) {
 };
 
 /***/ }),
-/* 39 */
+/* 81 */
 /*!*********************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/settle.js ***!
   \*********************************************************************************************************************/
@@ -10754,7 +10835,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var createError = __webpack_require__(/*! ./createError */ 40);
+var createError = __webpack_require__(/*! ./createError */ 82);
 
 /**
                                              * Resolve or reject a Promise based on response status.
@@ -10779,7 +10860,7 @@ module.exports = function settle(resolve, reject, response) {
 };
 
 /***/ }),
-/* 40 */
+/* 82 */
 /*!**************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/createError.js ***!
   \**************************************************************************************************************************/
@@ -10789,7 +10870,7 @@ module.exports = function settle(resolve, reject, response) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(/*! ./enhanceError */ 41);
+var enhanceError = __webpack_require__(/*! ./enhanceError */ 83);
 
 /**
                                                * Create an Error with the specified message, config, error code, request and response.
@@ -10807,7 +10888,7 @@ module.exports = function createError(message, config, code, request, response) 
 };
 
 /***/ }),
-/* 41 */
+/* 83 */
 /*!***************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/enhanceError.js ***!
   \***************************************************************************************************************************/
@@ -10859,7 +10940,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 };
 
 /***/ }),
-/* 42 */
+/* 84 */
 /*!****************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/buildFullPath.js ***!
   \****************************************************************************************************************************/
@@ -10869,8 +10950,8 @@ module.exports = function enhanceError(error, config, code, request, response) {
 "use strict";
 
 
-var isAbsoluteURL = __webpack_require__(/*! ../helpers/isAbsoluteURL */ 43);
-var combineURLs = __webpack_require__(/*! ../helpers/combineURLs */ 44);
+var isAbsoluteURL = __webpack_require__(/*! ../helpers/isAbsoluteURL */ 85);
+var combineURLs = __webpack_require__(/*! ../helpers/combineURLs */ 86);
 
 /**
                                                       * Creates a new URL by combining the baseURL with the requestedURL,
@@ -10889,7 +10970,7 @@ module.exports = function buildFullPath(baseURL, requestedURL) {
 };
 
 /***/ }),
-/* 43 */
+/* 85 */
 /*!*******************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
   \*******************************************************************************************************************************/
@@ -10913,7 +10994,7 @@ module.exports = function isAbsoluteURL(url) {
 };
 
 /***/ }),
-/* 44 */
+/* 86 */
 /*!*****************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/combineURLs.js ***!
   \*****************************************************************************************************************************/
@@ -10937,7 +11018,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 };
 
 /***/ }),
-/* 45 */
+/* 87 */
 /*!******************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/parseHeaders.js ***!
   \******************************************************************************************************************************/
@@ -10947,7 +11028,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
+var utils = __webpack_require__(/*! ./../utils */ 68);
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -11000,7 +11081,7 @@ module.exports = function parseHeaders(headers) {
 };
 
 /***/ }),
-/* 46 */
+/* 88 */
 /*!*********************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
   \*********************************************************************************************************************************/
@@ -11010,7 +11091,7 @@ module.exports = function parseHeaders(headers) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
+var utils = __webpack_require__(/*! ./../utils */ 68);
 
 module.exports =
 utils.isStandardBrowserEnv() ?
@@ -11077,7 +11158,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 47 */
+/* 89 */
 /*!*************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/cookies.js ***!
   \*************************************************************************************************************************/
@@ -11087,7 +11168,7 @@ function nonStandardBrowserEnv() {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
+var utils = __webpack_require__(/*! ./../utils */ 68);
 
 module.exports =
 utils.isStandardBrowserEnv() ?
@@ -11139,7 +11220,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 48 */
+/* 90 */
 /*!**************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/mergeConfig.js ***!
   \**************************************************************************************************************************/
@@ -11149,7 +11230,7 @@ function nonStandardBrowserEnv() {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ../utils */ 26);
+var utils = __webpack_require__(/*! ../utils */ 68);
 
 /**
                                   * Config-specific merge-function which creates a new config-object
@@ -11222,7 +11303,7 @@ module.exports = function mergeConfig(config1, config2) {
 };
 
 /***/ }),
-/* 49 */
+/* 91 */
 /*!***********************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/cancel/Cancel.js ***!
   \***********************************************************************************************************************/
@@ -11251,7 +11332,7 @@ Cancel.prototype.__CANCEL__ = true;
 module.exports = Cancel;
 
 /***/ }),
-/* 50 */
+/* 92 */
 /*!****************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/cancel/CancelToken.js ***!
   \****************************************************************************************************************************/
@@ -11261,7 +11342,7 @@ module.exports = Cancel;
 "use strict";
 
 
-var Cancel = __webpack_require__(/*! ./Cancel */ 49);
+var Cancel = __webpack_require__(/*! ./Cancel */ 91);
 
 /**
                                    * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -11318,7 +11399,7 @@ CancelToken.source = function source() {
 module.exports = CancelToken;
 
 /***/ }),
-/* 51 */
+/* 93 */
 /*!************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/spread.js ***!
   \************************************************************************************************************************/
@@ -11353,47 +11434,6 @@ module.exports = function spread(callback) {
     return callback.apply(null, arr);
   };
 };
-
-/***/ }),
-/* 52 */
-/*!************************************************************************************************!*\
-  !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/utils/request.js ***!
-  \************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _config = _interopRequireDefault(__webpack_require__(/*! ./config.js */ 53));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
-
-function _default(url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var method = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'GET';
-  return new Promise(function (resolve, reject) {
-    uni.request({
-      url: _config.default.host + url,
-      data: data,
-      method: method,
-      success: function success(res) {
-        resolve(res.data);
-      },
-      fail: function fail(error) {
-        reject(error);
-      } });
-
-  });
-};exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 53 */
-/*!***********************************************************************************************!*\
-  !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/utils/config.js ***!
-  \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 配置服务器的信息
-var _default = {
-  host: 'http://localhost:4001' };exports.default = _default;
 
 /***/ })
 ]]);

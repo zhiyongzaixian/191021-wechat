@@ -34,6 +34,12 @@ router.get('/getCateGorysListData', async (ctx, next) => {
 	ctx.body = cateGorysList
 })
 
+// indexCateList数据接口
+let indexCateListData = require('./datas/indexCateList.json');
+router.get('/getIndexCateListData', async (ctx, next) => {
+	ctx.body = indexCateListData
+})
+
 
 
 // 3. 声明使用中间键

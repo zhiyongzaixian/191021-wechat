@@ -30,12 +30,15 @@
 		<view class="detailFooter">
 			<image class="service" src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/detail-kefu-d10f0489d2.png?imageView&type=webp" mode=""></image>
 			<view class="btn buyNow">立即购买</view>
-			<view  class="btn addShopCart">加入购物车</view>
+			<view  class="btn addShopCart" @click="addShopCart">加入购物车</view>
 		</view>
 	</view>
 </template>
 
 <script>
+	
+	import {ADDCARTLIST} from '../../store/mutation-type.js'
+	import {mapMutations} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -50,6 +53,17 @@
 		// Vue组件的生命周期函数
 		mounted() {
 			console.log('mounted()');
+		},
+		methods: {
+			...mapMutations({
+				'addCartList': ADDCARTLIST
+			}),
+			// 添加至购物车
+			addShopCart(){
+				console.log('添加至购物车')
+				// 触发mutation
+				this.addCartList(this.shopItem)
+			}
 		}
 	}
 </script>

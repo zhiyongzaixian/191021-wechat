@@ -1,6 +1,11 @@
+import {
+	ADDCARTLIST
+} from '../mutation-type'
+
 const state = {
 	cartList: [
 		{
+				"count": 1,
 		    "promId": 0,
 		    "showPoints": false,
 		    "itemTagList": [
@@ -76,6 +81,7 @@ const state = {
 		    "itemSizeTableFlag": false
 		},
 		{
+				"count": 1,
 		    "promId": 0,
 		    "showPoints": false,
 		    "itemTagList": [
@@ -153,8 +159,30 @@ const state = {
 	]
 }
 
+const mutations = {
+	[ADDCARTLIST](state, shopItem){
+		// 深度克隆
+		shopItem = JSON.parse(JSON.stringify(shopItem))
+		// state.cartList.push(shopItem)
+		// 购物车之前是否有当前的商品数据
+		let item = state.cartList.find(item =>  item.id === shopItem.id)
+		if(item){ // 之前有该商品
+			// item.count += 1
+			// 响应式属性
+			item.count += 1
+			console.log(item.count)
+			console.log(state.cartList)
+		}else {// 购物车之前没有改商品
+			// 添加至购物车
+			shopItem.count = 1
+			state.cartList.push(shopItem)
+		}
+	}
+}
+
 
 
 export default {
 	state,
+	mutations
 }

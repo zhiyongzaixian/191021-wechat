@@ -32,7 +32,7 @@
 					<!-- 控制数量 -->
 					<view class="countCtrl">
 						<text class="add" > + </text>
-						<text class="count"> 1 </text>
+						<text class="count"> {{cartItem.count}} </text>
 						<text class="del" > - </text>
 					</view>
 				</view>

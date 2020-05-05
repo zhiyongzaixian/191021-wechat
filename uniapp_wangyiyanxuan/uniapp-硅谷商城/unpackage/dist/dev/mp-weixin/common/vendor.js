@@ -8400,7 +8400,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "usingComponents": { "recommend": "/components/Recommend/Recommend", "cate-list": "/components/cateList/cateList" } }, "pages/cateGorysList/cateGorysList": { "navigationBarTitleText": "商品分类", "usingComponents": {} }, "pages/detail/detail": { "navigationBarTitleText": "商品详情", "usingComponents": {} }, "pages/cart/cart": { "navigationBarTitleText": "购物车", "usingComponents": {} }, "pages/personal/personal": { "navigationBarTitleText": "个人中心", "navigationBarBackgroundColor": "#EED7B5", "usingComponents": {} }, "pages/login/login": { "navigationBarBackgroundColor": "#F8F8F8", "navigationBarTitleText": "登录中心", "usingComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarTitleText": "硅谷商城", "navigationBarBackgroundColor": "#BB2C08", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/cart/cart": { "navigationBarTitleText": "购物车" }, "pages/personal/personal": { "navigationBarTitleText": "个人中心", "navigationBarBackgroundColor": "#EED7B5" }, "pages/index/index": {}, "pages/cateGorysList/cateGorysList": { "navigationBarTitleText": "商品分类" }, "pages/detail/detail": { "navigationBarTitleText": "商品详情" }, "pages/login/login": { "navigationBarBackgroundColor": "#F8F8F8", "navigationBarTitleText": "登录中心" } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarTitleText": "硅谷商城", "navigationBarBackgroundColor": "#BB2C08", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
@@ -8425,7 +8425,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
 var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 10));
 var _index = _interopRequireDefault(__webpack_require__(/*! ./modules/index */ 11));
-var _cart = _interopRequireDefault(__webpack_require__(/*! ./modules/cart */ 139));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _cart = _interopRequireDefault(__webpack_require__(/*! ./modules/cart */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 // 1. 声明使用Vuex
 _vue.default.use(_vuex.default);
@@ -9396,7 +9396,7 @@ var index_esm = {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 12));var _request = _interopRequireDefault(__webpack_require__(/*! ../../utils/request.js */ 15));
-var _mutationType = __webpack_require__(/*! ../mutation-type */ 138);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+var _mutationType = __webpack_require__(/*! ../mutation-type */ 17);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
 
 
 var state = {
@@ -10256,12 +10256,222 @@ var _default = {
   host: 'http://localhost:4001' };exports.default = _default;
 
 /***/ }),
-/* 17 */,
-/* 18 */,
+/* 17 */
+/*!******************************************************************************************************!*\
+  !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/store/mutation-type.js ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.ADDCARTLIST = exports.CHANGEINDEXDATA = void 0;var CHANGEINDEXDATA = 'changeIndexData';exports.CHANGEINDEXDATA = CHANGEINDEXDATA;
+
+var ADDCARTLIST = 'addCartList';exports.ADDCARTLIST = ADDCARTLIST;
+
+/***/ }),
+/* 18 */
+/*!*****************************************************************************************************!*\
+  !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/store/modules/cart.js ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _mutationType = __webpack_require__(/*! ../mutation-type */ 17);function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+
+
+var state = {
+  cartList: [
+  {
+    "count": 1,
+    "promId": 0,
+    "showPoints": false,
+    "itemTagList": [
+    {
+      "itemId": 1586040,
+      "tagId": 128111157,
+      "freshmanExclusive": false,
+      "name": "暖冬特惠",
+      "subType": 204,
+      "forbidJump": false,
+      "type": 2 }],
+
+
+    "rank": 1,
+    "id": 1586040,
+    "sellVolume": 4315,
+    "primaryPicUrl": "https://yanxuan-item.nosdn.127.net/8d3d3daec71799e08c5853ce9e05b440.png",
+    "soldOut": false,
+    "sortFlag": 0,
+    "commentCount": 0,
+    "onSaleTime": 1539930828979,
+    "picMode": 1,
+    "commentWithPicCount": 0,
+    "underShelf": false,
+    "status": 2,
+    "couponConflict": true,
+    "forbiddenBuy": false,
+    "promotionDesc": "暖冬特惠",
+    "limitedFlag": 204,
+    "pieceNum": 0,
+    "itemSizeTableDetailFlag": false,
+    "forbidExclusiveCal": false,
+    "rewardShareFlag": false,
+    "updateTime": 1576200840751,
+    "showCommentEntrance": true,
+    "pieceUnitDesc": "件",
+    "specialPromTag": "",
+    "counterPrice": 699,
+    "categoryL2Id": 0,
+    "retailPrice": 525,
+    "primarySkuPreSellPrice": 0,
+    "preLimitFlag": 0,
+    "itemPromValid": true,
+    "promTag": "暖冬特惠",
+    "source": 0,
+    "points": 0,
+    "primarySkuPreSellStatus": 0,
+    "extraServiceFlag": 0,
+    "flashPageLink": "",
+    "autoOnsaleTimeLeft": 0,
+    "innerData": {},
+    "saleCenterSkuId": 0,
+    "pointsStatus": 0,
+    "extraPrice": "",
+    "colorNum": 6,
+    "showTime": 0,
+    "autoOnsaleTime": 0,
+    "preemptionStatus": 1,
+    "isPreemption": 0,
+    "zcSearchFlag": false,
+    "name": "珍贵的软滑感，女式高领纯小山羊绒衫2.0",
+    "appExclusiveFlag": false,
+    "itemType": 1,
+    "listPicUrl": "https://yanxuan-item.nosdn.127.net/ffd34ce21098cacad33371fcff8bd9f9.png",
+    "pointsPrice": 0,
+    "simpleDesc": "亲近温暖，拥抱温柔与纯粹",
+    "seoTitle": "",
+    "newItemFlag": false,
+    "buttonType": 0,
+    "primarySkuId": 300011138,
+    "displaySkuId": 300014019,
+    "productPlace": "",
+    "itemSizeTableFlag": false },
+
+  {
+    "count": 1,
+    "promId": 0,
+    "showPoints": false,
+    "itemTagList": [
+    {
+      "itemId": 1593000,
+      "tagId": 128111156,
+      "freshmanExclusive": false,
+      "name": "暖冬特惠",
+      "subType": 204,
+      "forbidJump": false,
+      "type": 2 }],
+
+
+    "rank": 1,
+    "id": 1593000,
+    "sellVolume": 3168,
+    "primaryPicUrl": "https://yanxuan-item.nosdn.127.net/59c9d23abdfdaac58ede7b3e70934817.png",
+    "soldOut": false,
+    "sortFlag": 0,
+    "commentCount": 0,
+    "onSaleTime": 1539929494550,
+    "picMode": 1,
+    "commentWithPicCount": 0,
+    "underShelf": false,
+    "status": 2,
+    "couponConflict": true,
+    "forbiddenBuy": false,
+    "promotionDesc": "暖冬特惠",
+    "limitedFlag": 204,
+    "pieceNum": 0,
+    "itemSizeTableDetailFlag": false,
+    "forbidExclusiveCal": false,
+    "rewardShareFlag": false,
+    "updateTime": 1575512503370,
+    "showCommentEntrance": true,
+    "pieceUnitDesc": "件",
+    "specialPromTag": "",
+    "counterPrice": 799,
+    "categoryL2Id": 0,
+    "retailPrice": 623,
+    "primarySkuPreSellPrice": 0,
+    "preLimitFlag": 0,
+    "itemPromValid": true,
+    "promTag": "暖冬特惠",
+    "source": 0,
+    "points": 0,
+    "primarySkuPreSellStatus": 0,
+    "extraServiceFlag": 0,
+    "flashPageLink": "",
+    "autoOnsaleTimeLeft": 0,
+    "innerData": {},
+    "saleCenterSkuId": 0,
+    "pointsStatus": 0,
+    "extraPrice": "",
+    "colorNum": 3,
+    "showTime": 0,
+    "autoOnsaleTime": 0,
+    "preemptionStatus": 1,
+    "isPreemption": 0,
+    "zcSearchFlag": false,
+    "name": "软糯似baby肌肤，男式高领纯小山羊绒衫",
+    "appExclusiveFlag": false,
+    "itemType": 1,
+    "listPicUrl": "https://yanxuan-item.nosdn.127.net/631f945255aad262ff1b9ce51662f74b.png",
+    "pointsPrice": 0,
+    "simpleDesc": "绒毛取自未满1岁的山羊羊羔",
+    "seoTitle": "",
+    "newItemFlag": false,
+    "buttonType": 0,
+    "primarySkuId": 1630007,
+    "displaySkuId": 1630008,
+    "productPlace": "",
+    "itemSizeTableFlag": false }] };
+
+
+
+
+var mutations = _defineProperty({},
+_mutationType.ADDCARTLIST, function (state, shopItem) {
+  // 深度克隆
+  shopItem = JSON.parse(JSON.stringify(shopItem));
+  // state.cartList.push(shopItem)
+  // 购物车之前是否有当前的商品数据
+  var item = state.cartList.find(function (item) {return item.id === shopItem.id;});
+  if (item) {// 之前有该商品
+    // item.count += 1
+    // 响应式属性
+    item.count += 1;
+    console.log(item.count);
+    console.log(state.cartList);
+  } else {// 购物车之前没有改商品
+    // 添加至购物车
+    shopItem.count = 1;
+    state.cartList.push(shopItem);
+  }
+});var _default =
+
+
+
+
+{
+  state: state,
+  mutations: mutations };exports.default = _default;
+
+/***/ }),
 /* 19 */,
 /* 20 */,
 /* 21 */,
-/* 22 */
+/* 22 */,
+/* 23 */,
+/* 24 */
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
   \********************************************************************/
@@ -10367,13 +10577,29 @@ function normalizeComponent (
 
 
 /***/ }),
-/* 23 */,
-/* 24 */,
 /* 25 */,
 /* 26 */,
 /* 27 */,
 /* 28 */,
-/* 29 */
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */
 /*!***********************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/index.js ***!
   \***********************************************************************************************************/
@@ -10381,10 +10607,10 @@ function normalizeComponent (
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-module.exports = __webpack_require__(/*! ./lib/axios */ 30);
+module.exports = __webpack_require__(/*! ./lib/axios */ 48);
 
 /***/ }),
-/* 30 */
+/* 48 */
 /*!***************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/axios.js ***!
   \***************************************************************************************************************/
@@ -10394,11 +10620,11 @@ module.exports = __webpack_require__(/*! ./lib/axios */ 30);
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./utils */ 31);
-var bind = __webpack_require__(/*! ./helpers/bind */ 32);
-var Axios = __webpack_require__(/*! ./core/Axios */ 33);
-var mergeConfig = __webpack_require__(/*! ./core/mergeConfig */ 53);
-var defaults = __webpack_require__(/*! ./defaults */ 39);
+var utils = __webpack_require__(/*! ./utils */ 49);
+var bind = __webpack_require__(/*! ./helpers/bind */ 50);
+var Axios = __webpack_require__(/*! ./core/Axios */ 51);
+var mergeConfig = __webpack_require__(/*! ./core/mergeConfig */ 71);
+var defaults = __webpack_require__(/*! ./defaults */ 57);
 
 /**
                                        * Create an instance of Axios
@@ -10431,15 +10657,15 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(/*! ./cancel/Cancel */ 54);
-axios.CancelToken = __webpack_require__(/*! ./cancel/CancelToken */ 55);
-axios.isCancel = __webpack_require__(/*! ./cancel/isCancel */ 38);
+axios.Cancel = __webpack_require__(/*! ./cancel/Cancel */ 72);
+axios.CancelToken = __webpack_require__(/*! ./cancel/CancelToken */ 73);
+axios.isCancel = __webpack_require__(/*! ./cancel/isCancel */ 56);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(/*! ./helpers/spread */ 56);
+axios.spread = __webpack_require__(/*! ./helpers/spread */ 74);
 
 module.exports = axios;
 
@@ -10447,7 +10673,7 @@ module.exports = axios;
 module.exports.default = axios;
 
 /***/ }),
-/* 31 */
+/* 49 */
 /*!***************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/utils.js ***!
   \***************************************************************************************************************/
@@ -10457,7 +10683,7 @@ module.exports.default = axios;
 "use strict";
 
 
-var bind = __webpack_require__(/*! ./helpers/bind */ 32);
+var bind = __webpack_require__(/*! ./helpers/bind */ 50);
 
 /*global toString:true*/
 
@@ -10800,7 +11026,7 @@ module.exports = {
   trim: trim };
 
 /***/ }),
-/* 32 */
+/* 50 */
 /*!**********************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/bind.js ***!
   \**********************************************************************************************************************/
@@ -10821,7 +11047,7 @@ module.exports = function bind(fn, thisArg) {
 };
 
 /***/ }),
-/* 33 */
+/* 51 */
 /*!********************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/Axios.js ***!
   \********************************************************************************************************************/
@@ -10831,11 +11057,11 @@ module.exports = function bind(fn, thisArg) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 31);
-var buildURL = __webpack_require__(/*! ../helpers/buildURL */ 34);
-var InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ 35);
-var dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ 36);
-var mergeConfig = __webpack_require__(/*! ./mergeConfig */ 53);
+var utils = __webpack_require__(/*! ./../utils */ 49);
+var buildURL = __webpack_require__(/*! ../helpers/buildURL */ 52);
+var InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ 53);
+var dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ 54);
+var mergeConfig = __webpack_require__(/*! ./mergeConfig */ 71);
 
 /**
                                              * Create a new instance of Axios
@@ -10925,7 +11151,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = Axios;
 
 /***/ }),
-/* 34 */
+/* 52 */
 /*!**************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/buildURL.js ***!
   \**************************************************************************************************************************/
@@ -10935,7 +11161,7 @@ module.exports = Axios;
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 31);
+var utils = __webpack_require__(/*! ./../utils */ 49);
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -11006,7 +11232,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 };
 
 /***/ }),
-/* 35 */
+/* 53 */
 /*!*********************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/InterceptorManager.js ***!
   \*********************************************************************************************************************************/
@@ -11016,7 +11242,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 31);
+var utils = __webpack_require__(/*! ./../utils */ 49);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -11068,7 +11294,7 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 module.exports = InterceptorManager;
 
 /***/ }),
-/* 36 */
+/* 54 */
 /*!******************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/dispatchRequest.js ***!
   \******************************************************************************************************************************/
@@ -11078,10 +11304,10 @@ module.exports = InterceptorManager;
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 31);
-var transformData = __webpack_require__(/*! ./transformData */ 37);
-var isCancel = __webpack_require__(/*! ../cancel/isCancel */ 38);
-var defaults = __webpack_require__(/*! ../defaults */ 39);
+var utils = __webpack_require__(/*! ./../utils */ 49);
+var transformData = __webpack_require__(/*! ./transformData */ 55);
+var isCancel = __webpack_require__(/*! ../cancel/isCancel */ 56);
+var defaults = __webpack_require__(/*! ../defaults */ 57);
 
 /**
                                         * Throws a `Cancel` if cancellation has been requested.
@@ -11157,7 +11383,7 @@ module.exports = function dispatchRequest(config) {
 };
 
 /***/ }),
-/* 37 */
+/* 55 */
 /*!****************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/transformData.js ***!
   \****************************************************************************************************************************/
@@ -11167,7 +11393,7 @@ module.exports = function dispatchRequest(config) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 31);
+var utils = __webpack_require__(/*! ./../utils */ 49);
 
 /**
                                     * Transform the data for a request or a response
@@ -11187,7 +11413,7 @@ module.exports = function transformData(data, headers, fns) {
 };
 
 /***/ }),
-/* 38 */
+/* 56 */
 /*!*************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/cancel/isCancel.js ***!
   \*************************************************************************************************************************/
@@ -11202,7 +11428,7 @@ module.exports = function isCancel(value) {
 };
 
 /***/ }),
-/* 39 */
+/* 57 */
 /*!******************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/defaults.js ***!
   \******************************************************************************************************************/
@@ -11212,8 +11438,8 @@ module.exports = function isCancel(value) {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(/*! ./utils */ 31);
-var normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ 42);
+var utils = __webpack_require__(/*! ./utils */ 49);
+var normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ 60);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded' };
@@ -11229,10 +11455,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(/*! ./adapters/xhr */ 43);
+    adapter = __webpack_require__(/*! ./adapters/xhr */ 61);
   } else if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(/*! ./adapters/http */ 43);
+    adapter = __webpack_require__(/*! ./adapters/http */ 61);
   }
   return adapter;
 }
@@ -11307,10 +11533,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 });
 
 module.exports = defaults;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/node-libs-browser/mock/process.js */ 40)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/node-libs-browser/mock/process.js */ 58)))
 
 /***/ }),
-/* 40 */
+/* 58 */
 /*!********************************************************!*\
   !*** ./node_modules/node-libs-browser/mock/process.js ***!
   \********************************************************/
@@ -11337,7 +11563,7 @@ exports.binding = function (name) {
     var path;
     exports.cwd = function () { return cwd };
     exports.chdir = function (dir) {
-        if (!path) path = __webpack_require__(/*! path */ 41);
+        if (!path) path = __webpack_require__(/*! path */ 59);
         cwd = path.resolve(dir, cwd);
     };
 })();
@@ -11350,7 +11576,7 @@ exports.features = {};
 
 
 /***/ }),
-/* 41 */
+/* 59 */
 /*!***********************************************!*\
   !*** ./node_modules/path-browserify/index.js ***!
   \***********************************************/
@@ -11582,10 +11808,10 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 40)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 58)))
 
 /***/ }),
-/* 42 */
+/* 60 */
 /*!*************************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
   \*************************************************************************************************************************************/
@@ -11595,7 +11821,7 @@ var substr = 'ab'.substr(-1) === 'b'
 "use strict";
 
 
-var utils = __webpack_require__(/*! ../utils */ 31);
+var utils = __webpack_require__(/*! ../utils */ 49);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -11607,7 +11833,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 };
 
 /***/ }),
-/* 43 */
+/* 61 */
 /*!**********************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/adapters/xhr.js ***!
   \**********************************************************************************************************************/
@@ -11617,13 +11843,13 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 31);
-var settle = __webpack_require__(/*! ./../core/settle */ 44);
-var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ 34);
-var buildFullPath = __webpack_require__(/*! ../core/buildFullPath */ 47);
-var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ 50);
-var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ 51);
-var createError = __webpack_require__(/*! ../core/createError */ 45);
+var utils = __webpack_require__(/*! ./../utils */ 49);
+var settle = __webpack_require__(/*! ./../core/settle */ 62);
+var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ 52);
+var buildFullPath = __webpack_require__(/*! ../core/buildFullPath */ 65);
+var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ 68);
+var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ 69);
+var createError = __webpack_require__(/*! ../core/createError */ 63);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -11720,7 +11946,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(/*! ./../helpers/cookies */ 52);
+      var cookies = __webpack_require__(/*! ./../helpers/cookies */ 70);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ?
@@ -11797,7 +12023,7 @@ module.exports = function xhrAdapter(config) {
 };
 
 /***/ }),
-/* 44 */
+/* 62 */
 /*!*********************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/settle.js ***!
   \*********************************************************************************************************************/
@@ -11807,7 +12033,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var createError = __webpack_require__(/*! ./createError */ 45);
+var createError = __webpack_require__(/*! ./createError */ 63);
 
 /**
                                              * Resolve or reject a Promise based on response status.
@@ -11832,7 +12058,7 @@ module.exports = function settle(resolve, reject, response) {
 };
 
 /***/ }),
-/* 45 */
+/* 63 */
 /*!**************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/createError.js ***!
   \**************************************************************************************************************************/
@@ -11842,7 +12068,7 @@ module.exports = function settle(resolve, reject, response) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(/*! ./enhanceError */ 46);
+var enhanceError = __webpack_require__(/*! ./enhanceError */ 64);
 
 /**
                                                * Create an Error with the specified message, config, error code, request and response.
@@ -11860,7 +12086,7 @@ module.exports = function createError(message, config, code, request, response) 
 };
 
 /***/ }),
-/* 46 */
+/* 64 */
 /*!***************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/enhanceError.js ***!
   \***************************************************************************************************************************/
@@ -11912,7 +12138,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 };
 
 /***/ }),
-/* 47 */
+/* 65 */
 /*!****************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/buildFullPath.js ***!
   \****************************************************************************************************************************/
@@ -11922,8 +12148,8 @@ module.exports = function enhanceError(error, config, code, request, response) {
 "use strict";
 
 
-var isAbsoluteURL = __webpack_require__(/*! ../helpers/isAbsoluteURL */ 48);
-var combineURLs = __webpack_require__(/*! ../helpers/combineURLs */ 49);
+var isAbsoluteURL = __webpack_require__(/*! ../helpers/isAbsoluteURL */ 66);
+var combineURLs = __webpack_require__(/*! ../helpers/combineURLs */ 67);
 
 /**
                                                       * Creates a new URL by combining the baseURL with the requestedURL,
@@ -11942,7 +12168,7 @@ module.exports = function buildFullPath(baseURL, requestedURL) {
 };
 
 /***/ }),
-/* 48 */
+/* 66 */
 /*!*******************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
   \*******************************************************************************************************************************/
@@ -11966,7 +12192,7 @@ module.exports = function isAbsoluteURL(url) {
 };
 
 /***/ }),
-/* 49 */
+/* 67 */
 /*!*****************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/combineURLs.js ***!
   \*****************************************************************************************************************************/
@@ -11990,7 +12216,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 };
 
 /***/ }),
-/* 50 */
+/* 68 */
 /*!******************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/parseHeaders.js ***!
   \******************************************************************************************************************************/
@@ -12000,7 +12226,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 31);
+var utils = __webpack_require__(/*! ./../utils */ 49);
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -12053,7 +12279,7 @@ module.exports = function parseHeaders(headers) {
 };
 
 /***/ }),
-/* 51 */
+/* 69 */
 /*!*********************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
   \*********************************************************************************************************************************/
@@ -12063,7 +12289,7 @@ module.exports = function parseHeaders(headers) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 31);
+var utils = __webpack_require__(/*! ./../utils */ 49);
 
 module.exports =
 utils.isStandardBrowserEnv() ?
@@ -12130,7 +12356,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 52 */
+/* 70 */
 /*!*************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/cookies.js ***!
   \*************************************************************************************************************************/
@@ -12140,7 +12366,7 @@ function nonStandardBrowserEnv() {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 31);
+var utils = __webpack_require__(/*! ./../utils */ 49);
 
 module.exports =
 utils.isStandardBrowserEnv() ?
@@ -12192,7 +12418,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 53 */
+/* 71 */
 /*!**************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/core/mergeConfig.js ***!
   \**************************************************************************************************************************/
@@ -12202,7 +12428,7 @@ function nonStandardBrowserEnv() {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ../utils */ 31);
+var utils = __webpack_require__(/*! ../utils */ 49);
 
 /**
                                   * Config-specific merge-function which creates a new config-object
@@ -12275,7 +12501,7 @@ module.exports = function mergeConfig(config1, config2) {
 };
 
 /***/ }),
-/* 54 */
+/* 72 */
 /*!***********************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/cancel/Cancel.js ***!
   \***********************************************************************************************************************/
@@ -12304,7 +12530,7 @@ Cancel.prototype.__CANCEL__ = true;
 module.exports = Cancel;
 
 /***/ }),
-/* 55 */
+/* 73 */
 /*!****************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/cancel/CancelToken.js ***!
   \****************************************************************************************************************************/
@@ -12314,7 +12540,7 @@ module.exports = Cancel;
 "use strict";
 
 
-var Cancel = __webpack_require__(/*! ./Cancel */ 54);
+var Cancel = __webpack_require__(/*! ./Cancel */ 72);
 
 /**
                                    * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -12371,7 +12597,7 @@ CancelToken.source = function source() {
 module.exports = CancelToken;
 
 /***/ }),
-/* 56 */
+/* 74 */
 /*!************************************************************************************************************************!*\
   !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/node_modules/axios/lib/helpers/spread.js ***!
   \************************************************************************************************************************/
@@ -12406,267 +12632,6 @@ module.exports = function spread(callback) {
     return callback.apply(null, arr);
   };
 };
-
-/***/ }),
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */,
-/* 81 */,
-/* 82 */,
-/* 83 */,
-/* 84 */,
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */,
-/* 120 */,
-/* 121 */,
-/* 122 */,
-/* 123 */,
-/* 124 */,
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */,
-/* 129 */,
-/* 130 */,
-/* 131 */,
-/* 132 */,
-/* 133 */,
-/* 134 */,
-/* 135 */,
-/* 136 */,
-/* 137 */,
-/* 138 */
-/*!******************************************************************************************************!*\
-  !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/store/mutation-type.js ***!
-  \******************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.CHANGEINDEXDATA = void 0;var CHANGEINDEXDATA = 'changeIndexData';exports.CHANGEINDEXDATA = CHANGEINDEXDATA;
-
-/***/ }),
-/* 139 */
-/*!*****************************************************************************************************!*\
-  !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/store/modules/cart.js ***!
-  \*****************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var state = {
-  cartList: [
-  {
-    "promId": 0,
-    "showPoints": false,
-    "itemTagList": [
-    {
-      "itemId": 1586040,
-      "tagId": 128111157,
-      "freshmanExclusive": false,
-      "name": "暖冬特惠",
-      "subType": 204,
-      "forbidJump": false,
-      "type": 2 }],
-
-
-    "rank": 1,
-    "id": 1586040,
-    "sellVolume": 4315,
-    "primaryPicUrl": "https://yanxuan-item.nosdn.127.net/8d3d3daec71799e08c5853ce9e05b440.png",
-    "soldOut": false,
-    "sortFlag": 0,
-    "commentCount": 0,
-    "onSaleTime": 1539930828979,
-    "picMode": 1,
-    "commentWithPicCount": 0,
-    "underShelf": false,
-    "status": 2,
-    "couponConflict": true,
-    "forbiddenBuy": false,
-    "promotionDesc": "暖冬特惠",
-    "limitedFlag": 204,
-    "pieceNum": 0,
-    "itemSizeTableDetailFlag": false,
-    "forbidExclusiveCal": false,
-    "rewardShareFlag": false,
-    "updateTime": 1576200840751,
-    "showCommentEntrance": true,
-    "pieceUnitDesc": "件",
-    "specialPromTag": "",
-    "counterPrice": 699,
-    "categoryL2Id": 0,
-    "retailPrice": 525,
-    "primarySkuPreSellPrice": 0,
-    "preLimitFlag": 0,
-    "itemPromValid": true,
-    "promTag": "暖冬特惠",
-    "source": 0,
-    "points": 0,
-    "primarySkuPreSellStatus": 0,
-    "extraServiceFlag": 0,
-    "flashPageLink": "",
-    "autoOnsaleTimeLeft": 0,
-    "innerData": {},
-    "saleCenterSkuId": 0,
-    "pointsStatus": 0,
-    "extraPrice": "",
-    "colorNum": 6,
-    "showTime": 0,
-    "autoOnsaleTime": 0,
-    "preemptionStatus": 1,
-    "isPreemption": 0,
-    "zcSearchFlag": false,
-    "name": "珍贵的软滑感，女式高领纯小山羊绒衫2.0",
-    "appExclusiveFlag": false,
-    "itemType": 1,
-    "listPicUrl": "https://yanxuan-item.nosdn.127.net/ffd34ce21098cacad33371fcff8bd9f9.png",
-    "pointsPrice": 0,
-    "simpleDesc": "亲近温暖，拥抱温柔与纯粹",
-    "seoTitle": "",
-    "newItemFlag": false,
-    "buttonType": 0,
-    "primarySkuId": 300011138,
-    "displaySkuId": 300014019,
-    "productPlace": "",
-    "itemSizeTableFlag": false },
-
-  {
-    "promId": 0,
-    "showPoints": false,
-    "itemTagList": [
-    {
-      "itemId": 1593000,
-      "tagId": 128111156,
-      "freshmanExclusive": false,
-      "name": "暖冬特惠",
-      "subType": 204,
-      "forbidJump": false,
-      "type": 2 }],
-
-
-    "rank": 1,
-    "id": 1593000,
-    "sellVolume": 3168,
-    "primaryPicUrl": "https://yanxuan-item.nosdn.127.net/59c9d23abdfdaac58ede7b3e70934817.png",
-    "soldOut": false,
-    "sortFlag": 0,
-    "commentCount": 0,
-    "onSaleTime": 1539929494550,
-    "picMode": 1,
-    "commentWithPicCount": 0,
-    "underShelf": false,
-    "status": 2,
-    "couponConflict": true,
-    "forbiddenBuy": false,
-    "promotionDesc": "暖冬特惠",
-    "limitedFlag": 204,
-    "pieceNum": 0,
-    "itemSizeTableDetailFlag": false,
-    "forbidExclusiveCal": false,
-    "rewardShareFlag": false,
-    "updateTime": 1575512503370,
-    "showCommentEntrance": true,
-    "pieceUnitDesc": "件",
-    "specialPromTag": "",
-    "counterPrice": 799,
-    "categoryL2Id": 0,
-    "retailPrice": 623,
-    "primarySkuPreSellPrice": 0,
-    "preLimitFlag": 0,
-    "itemPromValid": true,
-    "promTag": "暖冬特惠",
-    "source": 0,
-    "points": 0,
-    "primarySkuPreSellStatus": 0,
-    "extraServiceFlag": 0,
-    "flashPageLink": "",
-    "autoOnsaleTimeLeft": 0,
-    "innerData": {},
-    "saleCenterSkuId": 0,
-    "pointsStatus": 0,
-    "extraPrice": "",
-    "colorNum": 3,
-    "showTime": 0,
-    "autoOnsaleTime": 0,
-    "preemptionStatus": 1,
-    "isPreemption": 0,
-    "zcSearchFlag": false,
-    "name": "软糯似baby肌肤，男式高领纯小山羊绒衫",
-    "appExclusiveFlag": false,
-    "itemType": 1,
-    "listPicUrl": "https://yanxuan-item.nosdn.127.net/631f945255aad262ff1b9ce51662f74b.png",
-    "pointsPrice": 0,
-    "simpleDesc": "绒毛取自未满1岁的山羊羊羔",
-    "seoTitle": "",
-    "newItemFlag": false,
-    "buttonType": 0,
-    "primarySkuId": 1630007,
-    "displaySkuId": 1630008,
-    "productPlace": "",
-    "itemSizeTableFlag": false }] };var _default =
-
-
-
-
-
-
-{
-  state: state };exports.default = _default;
 
 /***/ })
 ]]);

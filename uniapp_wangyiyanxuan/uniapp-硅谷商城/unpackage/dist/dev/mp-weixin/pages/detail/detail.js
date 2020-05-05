@@ -162,9 +162,18 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+      shopItem: {} };
 
-
+  },
+  // uni-app既支持原生小程序的生命周期函数 同时也支持Vue组件的生命周期函数
+  //  原生小程序的生命周期函数
+  onLoad: function onLoad(options) {
+    this.shopItem = JSON.parse(options.shopItem);
+  },
+  // Vue组件的生命周期函数
+  mounted: function mounted() {
+    console.log('mounted()');
   } };exports.default = _default;
 
 /***/ }),

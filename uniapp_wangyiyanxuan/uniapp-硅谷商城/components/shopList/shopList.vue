@@ -1,6 +1,6 @@
 <template>
 	<div class="listContainer">
-		<div class="listItem" v-for='(shopItem, index) in shopList' :key='index'>
+		<div class="listItem" v-for='(shopItem, index) in shopList' :key='index' @click='toDetail(shopItem)'>
 			<image :src="shopItem.listPicUrl" mode=""></image>
 			<p>{{shopItem.name}}</p>
 			<p style='color: red;font-weight: bold;'>$ {{shopItem.retailPrice}}</p>
@@ -12,7 +12,11 @@
 	export default {
 		props: ['shopList'],
 		methods: {
-			
+			toDetail(shopItem){
+				uni.navigateTo({
+					url: '/pages/detail/detail?shopItem=' + JSON.stringify(shopItem)
+				})
+			}
 		}
 	}
 </script>

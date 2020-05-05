@@ -8424,7 +8424,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
 var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 10));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./modules/index */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _index = _interopRequireDefault(__webpack_require__(/*! ./modules/index */ 11));
+var _cart = _interopRequireDefault(__webpack_require__(/*! ./modules/cart */ 139));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 // 1. 声明使用Vuex
 _vue.default.use(_vuex.default);
@@ -8432,7 +8433,8 @@ _vue.default.use(_vuex.default);
 // 2. 生成store对象, 并向外暴露
 var _default = new _vuex.default.Store({
   modules: {
-    index: _index.default } });exports.default = _default;
+    index: _index.default,
+    cart: _cart.default } });exports.default = _default;
 
 /***/ }),
 /* 10 */
@@ -12496,6 +12498,175 @@ module.exports = function spread(callback) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.CHANGEINDEXDATA = void 0;var CHANGEINDEXDATA = 'changeIndexData';exports.CHANGEINDEXDATA = CHANGEINDEXDATA;
+
+/***/ }),
+/* 139 */
+/*!*****************************************************************************************************!*\
+  !*** C:/Users/13852/Desktop/1021课程内容资料/code/uniapp_wangyiyanxuan/uniapp-硅谷商城/store/modules/cart.js ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var state = {
+  cartList: [
+  {
+    "promId": 0,
+    "showPoints": false,
+    "itemTagList": [
+    {
+      "itemId": 1586040,
+      "tagId": 128111157,
+      "freshmanExclusive": false,
+      "name": "暖冬特惠",
+      "subType": 204,
+      "forbidJump": false,
+      "type": 2 }],
+
+
+    "rank": 1,
+    "id": 1586040,
+    "sellVolume": 4315,
+    "primaryPicUrl": "https://yanxuan-item.nosdn.127.net/8d3d3daec71799e08c5853ce9e05b440.png",
+    "soldOut": false,
+    "sortFlag": 0,
+    "commentCount": 0,
+    "onSaleTime": 1539930828979,
+    "picMode": 1,
+    "commentWithPicCount": 0,
+    "underShelf": false,
+    "status": 2,
+    "couponConflict": true,
+    "forbiddenBuy": false,
+    "promotionDesc": "暖冬特惠",
+    "limitedFlag": 204,
+    "pieceNum": 0,
+    "itemSizeTableDetailFlag": false,
+    "forbidExclusiveCal": false,
+    "rewardShareFlag": false,
+    "updateTime": 1576200840751,
+    "showCommentEntrance": true,
+    "pieceUnitDesc": "件",
+    "specialPromTag": "",
+    "counterPrice": 699,
+    "categoryL2Id": 0,
+    "retailPrice": 525,
+    "primarySkuPreSellPrice": 0,
+    "preLimitFlag": 0,
+    "itemPromValid": true,
+    "promTag": "暖冬特惠",
+    "source": 0,
+    "points": 0,
+    "primarySkuPreSellStatus": 0,
+    "extraServiceFlag": 0,
+    "flashPageLink": "",
+    "autoOnsaleTimeLeft": 0,
+    "innerData": {},
+    "saleCenterSkuId": 0,
+    "pointsStatus": 0,
+    "extraPrice": "",
+    "colorNum": 6,
+    "showTime": 0,
+    "autoOnsaleTime": 0,
+    "preemptionStatus": 1,
+    "isPreemption": 0,
+    "zcSearchFlag": false,
+    "name": "珍贵的软滑感，女式高领纯小山羊绒衫2.0",
+    "appExclusiveFlag": false,
+    "itemType": 1,
+    "listPicUrl": "https://yanxuan-item.nosdn.127.net/ffd34ce21098cacad33371fcff8bd9f9.png",
+    "pointsPrice": 0,
+    "simpleDesc": "亲近温暖，拥抱温柔与纯粹",
+    "seoTitle": "",
+    "newItemFlag": false,
+    "buttonType": 0,
+    "primarySkuId": 300011138,
+    "displaySkuId": 300014019,
+    "productPlace": "",
+    "itemSizeTableFlag": false },
+
+  {
+    "promId": 0,
+    "showPoints": false,
+    "itemTagList": [
+    {
+      "itemId": 1593000,
+      "tagId": 128111156,
+      "freshmanExclusive": false,
+      "name": "暖冬特惠",
+      "subType": 204,
+      "forbidJump": false,
+      "type": 2 }],
+
+
+    "rank": 1,
+    "id": 1593000,
+    "sellVolume": 3168,
+    "primaryPicUrl": "https://yanxuan-item.nosdn.127.net/59c9d23abdfdaac58ede7b3e70934817.png",
+    "soldOut": false,
+    "sortFlag": 0,
+    "commentCount": 0,
+    "onSaleTime": 1539929494550,
+    "picMode": 1,
+    "commentWithPicCount": 0,
+    "underShelf": false,
+    "status": 2,
+    "couponConflict": true,
+    "forbiddenBuy": false,
+    "promotionDesc": "暖冬特惠",
+    "limitedFlag": 204,
+    "pieceNum": 0,
+    "itemSizeTableDetailFlag": false,
+    "forbidExclusiveCal": false,
+    "rewardShareFlag": false,
+    "updateTime": 1575512503370,
+    "showCommentEntrance": true,
+    "pieceUnitDesc": "件",
+    "specialPromTag": "",
+    "counterPrice": 799,
+    "categoryL2Id": 0,
+    "retailPrice": 623,
+    "primarySkuPreSellPrice": 0,
+    "preLimitFlag": 0,
+    "itemPromValid": true,
+    "promTag": "暖冬特惠",
+    "source": 0,
+    "points": 0,
+    "primarySkuPreSellStatus": 0,
+    "extraServiceFlag": 0,
+    "flashPageLink": "",
+    "autoOnsaleTimeLeft": 0,
+    "innerData": {},
+    "saleCenterSkuId": 0,
+    "pointsStatus": 0,
+    "extraPrice": "",
+    "colorNum": 3,
+    "showTime": 0,
+    "autoOnsaleTime": 0,
+    "preemptionStatus": 1,
+    "isPreemption": 0,
+    "zcSearchFlag": false,
+    "name": "软糯似baby肌肤，男式高领纯小山羊绒衫",
+    "appExclusiveFlag": false,
+    "itemType": 1,
+    "listPicUrl": "https://yanxuan-item.nosdn.127.net/631f945255aad262ff1b9ce51662f74b.png",
+    "pointsPrice": 0,
+    "simpleDesc": "绒毛取自未满1岁的山羊羊羔",
+    "seoTitle": "",
+    "newItemFlag": false,
+    "buttonType": 0,
+    "primarySkuId": 1630007,
+    "displaySkuId": 1630008,
+    "productPlace": "",
+    "itemSizeTableFlag": false }] };var _default =
+
+
+
+
+
+
+{
+  state: state };exports.default = _default;
 
 /***/ })
 ]]);

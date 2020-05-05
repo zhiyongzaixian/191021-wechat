@@ -2,66 +2,87 @@
 	<view class="cartContainer">
 		<view class="title">购物车</view>
 		<!-- 没有登录 -->
-		<!-- <view class="header">
-			<text>30天无忧退货</text>
-			<text>48小时快速退货</text>
-			<text>满99元免邮费</text>
-		</view>
-		<view class="contentContainer">
-			<image class="cartImg" src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noCart-d6193bd6e4.png?imageView&type=webp" mode=""></image>
-			<button @click="toLogin">登录</button>
-			<view class="addMore">去添加点什么吧</view>
-		</view> -->
+		<block v-if="!userInfo.rawData">
+			<view class="header">
+				<text>30天无忧退货</text>
+				<text>48小时快速退货</text>
+				<text>满99元免邮费</text>
+			</view>
+			<view class="contentContainer">
+				<image class="cartImg" src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noCart-d6193bd6e4.png?imageView&type=webp" mode=""></image>
+				<button @click="toLogin">登录</button>
+				<view class="addMore">去添加点什么吧</view>
+			</view>
+		</block>
 		
-		
-		<!-- 登录：购物车有数据 -->
-		<!-- 购物车列表 -->
-		<view class="cartList">
-			<view class="cartItem" >
-				<text class='iconfont icon-xuanzhong selected'></text>
-				<view class="shopItem">
-					<image class="shopImg" src="https://yanxuan.nosdn.127.net/ed6400e5be573e1524cdef0b5c9e462d.png?quality=75&type=webp&imageView&thumbnail=144x144" mode=""></image>
-					<view class="shopInfo">
-						<text>贾静雯</text>
-						<text class="price">￥无价</text>
+		<!-- 登录 -->
+		<block v-else>
+			<!-- 登录：购物车有数据 -->
+			<!-- 购物车列表 -->
+			<view class="cartList">
+				<view class="cartItem" v-for="(cartItem,index) in cartList" :key='cartItem.id'>
+					<text class='iconfont icon-xuanzhong selected'></text>
+					<view class="shopItem">
+						<image class="shopImg" :src="cartItem.listPicUrl" mode=""></image>
+						<view class="shopInfo">
+							<text>{{cartItem.name}}</text>
+							<text class="price">￥{{cartItem.retailPrice}}</text>
+						</view>
+					</view>
+					<!-- 控制数量 -->
+					<view class="countCtrl">
+						<text class="add" > + </text>
+						<text class="count"> 1 </text>
+						<text class="del" > - </text>
 					</view>
 				</view>
-				<!-- 控制数量 -->
-				<view class="countCtrl">
-					<text class="add" > + </text>
-					<text class="count"> 1 </text>
-					<text class="del" > - </text>
+				
+			</view>
+			<!-- 底部下单 -->
+			<view class="cartFooter">
+				<text class='iconfont icon-xuanzhong selected'></text>
+				<text class="allSelected">已选 5</text>
+				<view class="right">
+					<text class="totalPrice">合计: ￥无价</text>
+					<text class="preOrder">下单</text>
 				</view>
 			</view>
-			
-		</view>
-		<!-- 底部下单 -->
-		<view class="cartFooter">
-			<text class='iconfont icon-xuanzhong selected'></text>
-			<text class="allSelected">已选 5</text>
-			<view class="right">
-				<text class="totalPrice">合计: ￥无价</text>
-				<text class="preOrder">下单</text>
-			</view>
-		</view>
-	
-	
-		<!-- 登录： 购物车没有数据 -->
-	<!-- 	<image class="cartImg" src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noCart-d6193bd6e4.png?imageView&type=webp" mode=""></image>
-		<view class="hint">购物车还是空的，赶紧去购物吧</view> -->
+			<!-- 登录： 购物车没有数据 -->
+			<!-- <image class="cartImg" src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noCart-d6193bd6e4.png?imageView&type=webp" mode=""></image>
+			<view class="hint">购物车还是空的，赶紧去购物吧</view> -->
+		</block>
+		
 	</view>
 	
 </template>
 
 <script>
+	import {mapState} from 'vuex'
 	export default {
 		data() {
 			return {
-				
+				userInfo: {}
+			}
+		},
+		beforeMount() {
+			// 判断用户是否登录
+			let userInfo = uni.getStorageSync('userInfo')
+			// 登录
+			if(userInfo){
+				this.userInfo = JSON.parse(userInfo)
 			}
 		},
 		methods: {
-			
+			toLogin(){
+				uni.redirectTo({
+					url:  '/pages/login/login'
+				})
+			}
+		},
+		computed: {
+			...mapState({
+				cartList: state => state.cart.cartList
+			})
 		}
 	}
 </script>

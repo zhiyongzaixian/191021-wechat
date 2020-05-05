@@ -11,10 +11,10 @@
 		
 		<!-- 内容区 -->
 		<scroll-view class="content" scroll-y="true">
-			<image class="detailImg" src="https://yanxuan-item.nosdn.127.net/c2eeb1b872af1b8efc179a7515aacdaa.png" mode=""></image>
-			<view class="tag">暖冬特惠</view>
-			<text class="price">￥ 299</text>
-			<view class="info">男式色拉姆内衣套装</view>
+			<image class="detailImg" :src="shopItem.listPicUrl" mode=""></image>
+			<view class="tag">{{shopItem.promTag}}</view>
+			<text class="price">￥ {{shopItem.retailPrice}}</text>
+			<view class="info">{{shopItem.name}}</view>
 			
 			
 			<!-- 准备内容 -->
@@ -39,8 +39,17 @@
 	export default {
 		data() {
 			return {
-				
+				shopItem: {}
 			};
+		},
+		// uni-app既支持原生小程序的生命周期函数 同时也支持Vue组件的生命周期函数
+		//  原生小程序的生命周期函数
+		onLoad(options){
+			this.shopItem = JSON.parse(options.shopItem)
+		},
+		// Vue组件的生命周期函数
+		mounted() {
+			console.log('mounted()');
 		}
 	}
 </script>

@@ -10264,12 +10264,15 @@ var _default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.CHANGECOUNTMUTATION = exports.ADDCARTLIST = exports.CHANGEINDEXDATA = void 0;var CHANGEINDEXDATA = 'changeIndexData';exports.CHANGEINDEXDATA = CHANGEINDEXDATA;
+Object.defineProperty(exports, "__esModule", { value: true });exports.CHANGEALLSELECTEDMUTATION = exports.CHANGESELECTEDMUTATION = exports.CHANGECOUNTMUTATION = exports.ADDCARTLIST = exports.CHANGEINDEXDATA = void 0;var CHANGEINDEXDATA = 'changeIndexData';exports.CHANGEINDEXDATA = CHANGEINDEXDATA;
 
 var ADDCARTLIST = 'addCartList';exports.ADDCARTLIST = ADDCARTLIST;
 
-
 var CHANGECOUNTMUTATION = 'changeCountMutation';exports.CHANGECOUNTMUTATION = CHANGECOUNTMUTATION;
+
+var CHANGESELECTEDMUTATION = 'changeSelectedMutation';exports.CHANGESELECTEDMUTATION = CHANGESELECTEDMUTATION;
+
+var CHANGEALLSELECTEDMUTATION = 'changeAllSelectedMutation';exports.CHANGEALLSELECTEDMUTATION = CHANGEALLSELECTEDMUTATION;
 
 /***/ }),
 /* 18 */
@@ -10286,10 +10289,13 @@ var _mutationType = __webpack_require__(/*! ../mutation-type */ 17);var _mutatio
 
 
 
+
+
 var state = {
   cartList: [
   {
     "count": 1,
+    "selected": true,
     "promId": 0,
     "showPoints": false,
     "itemTagList": [
@@ -10366,6 +10372,7 @@ var state = {
 
   {
     "count": 1,
+    "selected": true,
     "promId": 0,
     "showPoints": false,
     "itemTagList": [
@@ -10466,9 +10473,10 @@ _mutationType.ADDCARTLIST, function (state, shopItem) {
 
     // 2. 响应式属性
     _vue.default.set(shopItem, 'count', 1);
+    _vue.default.set(shopItem, 'selected', true);
     /* 
-                                            	在  Vuex中后期往数组中添加引用数据类型，后期修改该引用类型的内容的时候，Vuex无法检测到数据变化
-                                             */
+                                                  	在  Vuex中后期往数组中添加引用数据类型，后期修改该引用类型的内容的时候，Vuex无法检测到数据变化
+                                                   */
     state.cartList.push(shopItem);
   }
 }), _defineProperty(_mutations,
@@ -10482,14 +10490,45 @@ _mutationType.CHANGECOUNTMUTATION, function (state, _ref) {var isAdd = _ref.isAd
       state.cartList.splice(index, 1);
     }
   }
-}), _mutations);var _default =
+}), _defineProperty(_mutations,
+_mutationType.CHANGESELECTEDMUTATION, function (state, _ref2) {var selected = _ref2.selected,index = _ref2.index;
+  state.cartList[index].selected = selected;
+}), _defineProperty(_mutations,
+
+
+_mutationType.CHANGEALLSELECTEDMUTATION, function (state, allSelected) {
+  state.cartList.forEach(function (item) {return item.selected = allSelected;});
+}), _mutations);
+
+
+
+var getters = {
+  isAllSelected: function isAllSelected(state) {
+    var result = true;
+    state.cartList.forEach(function (item) {return !item.selected && (result = false);});
+    return result;
+  },
+  totalCount: function totalCount(state) {
+    // return state.cartList.reduce((pre, shopItem) => {
+    // 	return pre += shopItem.count
+    // }, 0)
+
+    return state.cartList.reduce(function (pre, shopItem) {return pre += shopItem.count;}, 0);
+  },
+  totalPrice: function totalPrice(state) {
+    // return state.cartList.reduce((pre, shopItem) => {
+    // 	return pre += shopItem.count * shopItem.retailPrice
+    // }, 0)
+    return state.cartList.reduce(function (pre, shopItem) {return pre += shopItem.count * shopItem.retailPrice;}, 0);
+  } };var _default =
 
 
 
 
 {
   state: state,
-  mutations: mutations };exports.default = _default;
+  mutations: mutations,
+  getters: getters };exports.default = _default;
 
 /***/ }),
 /* 19 */,

@@ -22,7 +22,7 @@
 				<!-- 购物车列表 -->
 				<view class="cartList">
 					<view class="cartItem" v-for="(cartItem,index) in cartList" :key='cartItem.id'>
-						<text class='iconfont icon-xuanzhong selected'></text>
+						<text class='iconfont icon-xuanzhong ' :class="{selected: cartItem.selected}"  @click="changeSelected(!cartItem.selected, index)"></text>
 						<view class="shopItem">
 							<image class="shopImg" :src="cartItem.listPicUrl" mode=""></image>
 							<view class="shopInfo">
@@ -41,10 +41,10 @@
 				</view>
 				<!-- 底部下单 -->
 				<view class="cartFooter">
-					<text class='iconfont icon-xuanzhong selected'></text>
-					<text class="allSelected">已选 5</text>
+					<text class='iconfont icon-xuanzhong ' :class="{selected: isAllSelected}" @click="changeAllSelected(!isAllSelected)"></text>
+					<text class="allSelected">已选 {{totalCount}}</text>
 					<view class="right">
-						<text class="totalPrice">合计: ￥无价</text>
+						<text class="totalPrice">合计: ￥{{totalPrice}}</text>
 						<text class="preOrder">下单</text>
 					</view>
 				</view>
@@ -61,8 +61,8 @@
 </template>
 
 <script>
-	import {mapState, mapMutations} from 'vuex'
-	import  {CHANGECOUNTMUTATION} from '../../store/mutation-type.js'
+	import {mapState, mapMutations, mapGetters} from 'vuex'
+	import  {CHANGECOUNTMUTATION, CHANGESELECTEDMUTATION, CHANGEALLSELECTEDMUTATION} from '../../store/mutation-type.js'
 	export default {
 		data() {
 			return {
@@ -79,7 +79,9 @@
 		},
 		methods: {
 			...mapMutations({
-				'changeCountMutation': CHANGECOUNTMUTATION
+				'changeCountMutation': CHANGECOUNTMUTATION,
+				"changeSelectedMutaioin": CHANGESELECTEDMUTATION,
+				'changeAllSelectedMutation': CHANGEALLSELECTEDMUTATION
 			}),
 			toLogin(){
 				uni.redirectTo({
@@ -89,12 +91,22 @@
 			// 修改数量
 			changeCount(isAdd, index){
 				this.changeCountMutation({isAdd, index})
+			},
+			// 修改是否选中的状态
+			changeSelected(selected, index){
+				this.changeSelectedMutaioin({selected, index});
+			},
+			
+			// 全选/全不选
+			changeAllSelected(allSelected){
+				this.changeAllSelectedMutation(allSelected)
 			}
 		},
 		computed: {
 			...mapState({
 				cartList: state => state.cart.cartList
-			})
+			}),
+			...mapGetters(['isAllSelected', 'totalCount', 'totalPrice'])
 		}
 	}
 </script>

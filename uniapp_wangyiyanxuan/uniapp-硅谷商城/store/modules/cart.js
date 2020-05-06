@@ -1,13 +1,16 @@
 import Vue from 'vue'
 import {
 	ADDCARTLIST,
-	CHANGECOUNTMUTATION
+	CHANGECOUNTMUTATION,
+	CHANGESELECTEDMUTATION,
+	CHANGEALLSELECTEDMUTATION
 } from '../mutation-type'
 
 const state = {
 	cartList: [
 		{
 				"count": 1,
+				"selected": true,
 		    "promId": 0,
 		    "showPoints": false,
 		    "itemTagList": [
@@ -84,6 +87,7 @@ const state = {
 		},
 		{
 				"count": 1,
+				"selected": true,
 		    "promId": 0,
 		    "showPoints": false,
 		    "itemTagList": [
@@ -184,6 +188,7 @@ const mutations = {
 			
 			// 2. 响应式属性
 			Vue.set(shopItem, 'count', 1)
+			Vue.set(shopItem, 'selected', true)
 			/* 
 				在  Vuex中后期往数组中添加引用数据类型，后期修改该引用类型的内容的时候，Vuex无法检测到数据变化
 			 */
@@ -200,6 +205,36 @@ const mutations = {
 				state.cartList.splice(index, 1)
 			}
 		}
+	},
+	[CHANGESELECTEDMUTATION](state, {selected, index}){
+		state.cartList[index].selected = selected
+	},
+	
+	// 全选、全不选
+	[CHANGEALLSELECTEDMUTATION](state, allSelected){
+		state.cartList.forEach(item => item.selected = allSelected)
+	}
+}
+
+
+const getters = {
+	isAllSelected(state){
+		let result = true;
+		state.cartList.forEach(item => !item.selected && (result = false))
+		return result
+	},
+	totalCount(state){
+		// return state.cartList.reduce((pre, shopItem) => {
+		// 	return pre += shopItem.count
+		// }, 0)
+		
+		return state.cartList.reduce((pre, shopItem) => (pre += shopItem.count), 0)
+	},
+	totalPrice(state){
+		// return state.cartList.reduce((pre, shopItem) => {
+		// 	return pre += shopItem.count * shopItem.retailPrice
+		// }, 0)
+		return state.cartList.reduce((pre, shopItem) => (pre += shopItem.count * shopItem.retailPrice), 0)
 	}
 }
 
@@ -207,5 +242,6 @@ const mutations = {
 
 export default {
 	state,
-	mutations
+	mutations,
+	getters
 }

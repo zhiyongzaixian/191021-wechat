@@ -203,7 +203,9 @@ var _mutationType = __webpack_require__(/*! ../../store/mutation-type.js */ 17);
   },
   methods: _objectSpread({},
   (0, _vuex.mapMutations)({
-    'changeCountMutation': _mutationType.CHANGECOUNTMUTATION }), {
+    'changeCountMutation': _mutationType.CHANGECOUNTMUTATION,
+    "changeSelectedMutaioin": _mutationType.CHANGESELECTEDMUTATION,
+    'changeAllSelectedMutation': _mutationType.CHANGEALLSELECTEDMUTATION }), {
 
     toLogin: function toLogin() {
       uni.redirectTo({
@@ -213,11 +215,22 @@ var _mutationType = __webpack_require__(/*! ../../store/mutation-type.js */ 17);
     // 修改数量
     changeCount: function changeCount(isAdd, index) {
       this.changeCountMutation({ isAdd: isAdd, index: index });
+    },
+    // 修改是否选中的状态
+    changeSelected: function changeSelected(selected, index) {
+      this.changeSelectedMutaioin({ selected: selected, index: index });
+    },
+
+    // 全选/全不选
+    changeAllSelected: function changeAllSelected(allSelected) {
+      this.changeAllSelectedMutation(allSelected);
     } }),
 
   computed: _objectSpread({},
   (0, _vuex.mapState)({
-    cartList: function cartList(state) {return state.cart.cartList;} })) };exports.default = _default;
+    cartList: function cartList(state) {return state.cart.cartList;} }),
+
+  (0, _vuex.mapGetters)(['isAllSelected', 'totalCount', 'totalPrice'])) };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

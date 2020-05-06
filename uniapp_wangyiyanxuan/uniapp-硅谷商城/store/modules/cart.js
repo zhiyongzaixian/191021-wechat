@@ -1,5 +1,7 @@
+import Vue from 'vue'
 import {
-	ADDCARTLIST
+	ADDCARTLIST,
+	CHANGECOUNTMUTATION
 } from '../mutation-type'
 
 const state = {
@@ -162,20 +164,41 @@ const state = {
 const mutations = {
 	[ADDCARTLIST](state, shopItem){
 		// 深度克隆
-		shopItem = JSON.parse(JSON.stringify(shopItem))
+		// shopItem = JSON.parse(JSON.stringify(shopItem))
 		// state.cartList.push(shopItem)
 		// 购物车之前是否有当前的商品数据
+		// find方法： 通过指定的条件查找数组中符合条件的元素， 返回值： 1. 符合条件的元素 2. undefined
 		let item = state.cartList.find(item =>  item.id === shopItem.id)
 		if(item){ // 之前有该商品
 			// item.count += 1
 			// 响应式属性
 			item.count += 1
-			console.log(item.count)
-			console.log(state.cartList)
 		}else {// 购物车之前没有改商品
 			// 添加至购物车
-			shopItem.count = 1
+			// 响应式属性 VS 非响应式属性
+			/* 
+				
+			 */
+			// 1. 非响应式属性count
+			// shopItem.count = 1
+			
+			// 2. 响应式属性
+			Vue.set(shopItem, 'count', 1)
+			/* 
+				在  Vuex中后期往数组中添加引用数据类型，后期修改该引用类型的内容的时候，Vuex无法检测到数据变化
+			 */
 			state.cartList.push(shopItem)
+		}
+	},
+	[CHANGECOUNTMUTATION](state, {isAdd, index}){
+		if(isAdd){ // 累加
+			state.cartList[index].count += 1
+		}else { // 累减
+			if(state.cartList[index].count > 1){
+				state.cartList[index].count -= 1
+			}else { // 数量 == 1， 直接删除当前的商品
+				state.cartList.splice(index, 1)
+			}
 		}
 	}
 }

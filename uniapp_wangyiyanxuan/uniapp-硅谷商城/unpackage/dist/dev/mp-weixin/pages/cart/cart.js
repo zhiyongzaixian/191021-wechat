@@ -181,7 +181,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 10);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 10);
+var _mutationType = __webpack_require__(/*! ../../store/mutation-type.js */ 17);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 {
   data: function data() {
     return {
@@ -196,12 +201,19 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _objectSpread(target) {
       this.userInfo = JSON.parse(userInfo);
     }
   },
-  methods: {
+  methods: _objectSpread({},
+  (0, _vuex.mapMutations)({
+    'changeCountMutation': _mutationType.CHANGECOUNTMUTATION }), {
+
     toLogin: function toLogin() {
       uni.redirectTo({
         url: '/pages/login/login' });
 
-    } },
+    },
+    // 修改数量
+    changeCount: function changeCount(isAdd, index) {
+      this.changeCountMutation({ isAdd: isAdd, index: index });
+    } }),
 
   computed: _objectSpread({},
   (0, _vuex.mapState)({
